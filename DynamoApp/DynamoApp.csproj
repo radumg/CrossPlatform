@@ -47,6 +47,9 @@
   <ItemGroup>
     <None Include="pkg.json" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Dynamo\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>xcopy "$(ProjectDir)bin\Debug" "%25appdata%25\Dynamo\Dynamo Core\2.0\packages\$(SolutionName)\bin\" /Y

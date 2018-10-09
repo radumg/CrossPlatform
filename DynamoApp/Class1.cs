@@ -4,13 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CrossPlatform
+namespace CrossPlatform.Dynamo
 {
     public static class DynamoApp
     {
-        public static string WhoAmI()
-        {
-            return DateTime.Now.ToLongDateString();
-        }
+        public static string WhoAmI => DateTime.Now.ToLongDateString();
     }
 }

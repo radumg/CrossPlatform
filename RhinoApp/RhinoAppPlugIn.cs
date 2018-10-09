@@ -1,4 +1,6 @@
-﻿namespace CrossPlatform
+﻿using Rhino.PlugIns;
+
+namespace CrossPlatform.Rhino
 {
     ///<summary>
     /// <para>Every RhinoCommon .rhp assembly must have one and only one PlugIn-derived
@@ -8,7 +10,7 @@
     /// attributes in AssemblyInfo.cs (you might need to click "Project" ->
     /// "Show All Files" to see it in the "Solution Explorer" window).</para>
     ///</summary>
-    public class RhinoAppPlugIn : Rhino.PlugIns.PlugIn
+    public class RhinoAppPlugIn : PlugIn
 
     {
         public RhinoAppPlugIn()

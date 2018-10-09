@@ -2,6 +2,7 @@ using System.Windows.Forms;
 using Autodesk.Revit.Attributes;
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
+using CrossPlatform.Library.Utils;
 
 namespace CrossPlatform.Revit
 {
@@ -13,7 +14,12 @@ namespace CrossPlatform.Revit
           ref string message,
           ElementSet elements)
         {
-            MessageBox.Show(CrossPlatform.Library.Utils.WhoAmI());
+            var identity = new WhoAmI(
+                commandData.Application.Application.VersionName,
+                commandData.Application.Application.VersionNumber
+                );
+
+            MessageBox.Show(identity.Format());
 
             return Result.Succeeded;
         }

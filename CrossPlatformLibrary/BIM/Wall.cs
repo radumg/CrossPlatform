@@ -1,15 +1,15 @@
 ﻿using System;
-using Autodesk.Revit.DB;
+using ADSK = Autodesk.Revit.DB;
 using CrossPlatform.Interfaces;
-using Rhino.Geometry;
 using BaseElement = CrossPlatform.Library.BaseElement;
 using Line = CrossPlatform.Geometry.Line;
+using CrossPlatform.Geometry;
 
 namespace CrossPlatform.BIM
 {
     public class Wall :
         BaseElement,
-        IRevitInterop<Wall, Autodesk.Revit.DB.Wall>,
+        IRevitInterop<Wall, ADSK.Wall>,
         IRhinoInterop<Wall, Rhino.Geometry.Extrusion>
     {
         public Line BaseLine { get; set; }
@@ -45,21 +45,35 @@ namespace CrossPlatform.BIM
 
         #region interop
 
-        public Wall FromRevit(Autodesk.Revit.DB.Wall revitObject)
+        public Wall FromRevit(ADSK.Wall revitWall)
+        {
+            Thickness = revitWall.Width;
+
+            // note : this will only work with unconnected walls
+            // futher logic would be needed to handle the other cases
+            Height = revitWall.get_Parameter(ADSK.BuiltInParameter.WALL_USER_HEIGHT_PARAM).AsDouble();
+
+            // get the base curve
+            var locationCurve = revitWall.Location as ADSK.LocationCurve;
+            BaseLine = new Line()
+            {
+                StartPoint = new Point().FromRevit(locationCurve.Curve.GetEndPoint(0)),
+                EndPoint = new Point().FromRevit(locationCurve.Curve.GetEndPoint(1))
+            };
+
+            return this;
+        }
+
+        public ADSK.Wall ToRevit()
         {
             throw new System.NotImplementedException();
         }
 
-        public Autodesk.Revit.DB.Wall ToRevit()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public Autodesk.Revit.DB.Wall ToRevit(Autodesk.Revit.DB.Document doc = null, Autodesk.Revit.DB.ElementId levelId = null)
+        public ADSK.Wall ToRevit(ADSK.Document doc = null, ADSK.ElementId levelId = null)
         {
             if (doc == null || levelId == null) throw new ArgumentNullException();
 
-            return Autodesk.Revit.DB.Wall.Create(
+            return ADSK.Wall.Create(
                 doc,
                 BaseLine.ToRevit(),
                 levelId,
@@ -67,18 +81,16 @@ namespace CrossPlatform.BIM
                 );
         }
 
-        public Wall FromRhino(Extrusion rhinoObject)
+        public Wall FromRhino(Rhino.Geometry.Extrusion rhinoObject)
         {
             throw new System.NotImplementedException();
         }
 
-        public Extrusion ToRhino()
+        public Rhino.Geometry.Extrusion ToRhino()
         {
             throw new System.NotImplementedException();
         }
-
 
         #endregion
-
     }
 }
