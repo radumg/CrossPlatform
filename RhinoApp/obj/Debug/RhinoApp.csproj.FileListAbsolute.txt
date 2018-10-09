@@ -1,0 +1,11 @@
+C:\Users\radug\Documents\GitHub\BiLT\2018\code\CrossPlatformDev\RhinoApp\obj\Debug\RhinoApp.csproj.CoreCompileInputs.cache
+C:\Users\radug\Documents\GitHub\BiLT\2018\code\CrossPlatformDev\RhinoApp\bin\RhinoApp.dll
+C:\Users\radug\Documents\GitHub\BiLT\2018\code\CrossPlatformDev\RhinoApp\bin\RhinoApp.pdb
+C:\Users\radug\Documents\GitHub\BiLT\2018\code\CrossPlatformDev\RhinoApp\obj\Debug\RhinoApp.dll
+C:\Users\radug\Documents\GitHub\BiLT\2018\code\CrossPlatformDev\RhinoApp\obj\Debug\RhinoApp.pdb
+C:\Users\radug\Documents\GitHub\CrossPlatform\RhinoApp\bin\CrossPlatform.dll
+C:\Users\radug\Documents\GitHub\CrossPlatform\RhinoApp\bin\CrossPlatform.pdb
+C:\Users\radug\Documents\GitHub\CrossPlatform\RhinoApp\obj\Debug\RhinoApp.csprojAssemblyReference.cache
+C:\Users\radug\Documents\GitHub\CrossPlatform\RhinoApp\obj\Debug\RhinoApp.csproj.CoreCompileInputs.cache
+C:\Users\radug\Documents\GitHub\CrossPlatform\RhinoApp\obj\Debug\CrossPlatform.dll
+C:\Users\radug\Documents\GitHub\CrossPlatform\RhinoApp\obj\Debug\CrossPlatform.pdb
