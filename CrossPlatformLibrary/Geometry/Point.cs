@@ -1,11 +1,12 @@
 ﻿using System;
+using Autodesk.Revit.DB;
 using CrossPlatform.Interfaces;
 using CrossPlatform.Library;
 
 namespace CrossPlatform.Geometry
 {
     public class Point :
-        Element,
+        BaseElement,
         IRevitInterop<Point, Autodesk.Revit.DB.XYZ>,
         IRhinoInterop<Point, Rhino.Geometry.Point3d>
     {
@@ -46,6 +47,11 @@ namespace CrossPlatform.Geometry
             return new Autodesk.Revit.DB.XYZ(X, Y, Z);
         }
 
+        public XYZ ToRevit(Document doc = null, ElementId hostId = null)
+        {
+            return ToRevit();
+        }
+
         public Point FromRhino(Rhino.Geometry.Point3d rhinoPoint)
         {
             if (rhinoPoint == null) throw new ArgumentNullException();
@@ -61,6 +67,7 @@ namespace CrossPlatform.Geometry
         {
             return new Rhino.Geometry.Point3d(X, Y, Z);
         }
+
         #endregion
     }
 }

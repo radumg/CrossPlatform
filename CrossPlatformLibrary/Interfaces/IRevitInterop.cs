@@ -10,5 +10,6 @@ namespace CrossPlatform.Interfaces
     {
         Tsource FromRevit(Ttarget revitObject);
         Ttarget ToRevit();
+        Ttarget ToRevit(Autodesk.Revit.DB.Document doc = null, Autodesk.Revit.DB.ElementId hostId=null);
     }
 }

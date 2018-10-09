@@ -1,4 +1,5 @@
 ﻿using System;
+using Autodesk.Revit.DB;
 using CrossPlatform.Interfaces;
 using CrossPlatform.Library;
 using Rhino.Geometry;
@@ -6,7 +7,7 @@ using Rhino.Geometry;
 namespace CrossPlatform.Geometry
 {
     public class Line :
-        Element,
+        BaseElement,
         IRevitInterop<Line, Autodesk.Revit.DB.Line>,
         IRhinoInterop<Line, Rhino.Geometry.LineCurve>
     {
@@ -68,6 +69,11 @@ namespace CrossPlatform.Geometry
             return Autodesk.Revit.DB.Line.CreateBound(start, end);
         }
 
+        public Autodesk.Revit.DB.Line ToRevit(Document doc = null, ElementId hostId = null)
+        {
+            return ToRevit();
+        }
+
         public Line FromRhino(Rhino.Geometry.LineCurve rhinoLine)
         {
             if (rhinoLine == null) throw new ArgumentNullException();
@@ -82,6 +88,7 @@ namespace CrossPlatform.Geometry
         {
             return new Rhino.Geometry.LineCurve(StartPoint.ToRhino(), EndPoint.ToRhino());
         }
+
         #endregion
     }
 }

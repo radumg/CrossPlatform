@@ -1,10 +1,16 @@
-﻿using CrossPlatform.Interfaces;
-using Element = CrossPlatform.Library.Element;
+﻿using System;
+using Autodesk.Revit.DB;
+using CrossPlatform.Interfaces;
+using Rhino.Geometry;
+using BaseElement = CrossPlatform.Library.BaseElement;
 using Line = CrossPlatform.Geometry.Line;
 
 namespace CrossPlatform.BIM
 {
-    public class Wall : Element, IRevitInterop<Wall,Autodesk.Revit.DB.Wall>
+    public class Wall :
+        BaseElement,
+        IRevitInterop<Wall, Autodesk.Revit.DB.Wall>,
+        IRhinoInterop<Wall, Rhino.Geometry.Extrusion>
     {
         public Line BaseLine { get; set; }
         public double Thickness { get; set; }
@@ -48,6 +54,29 @@ namespace CrossPlatform.BIM
         {
             throw new System.NotImplementedException();
         }
+
+        public Autodesk.Revit.DB.Wall ToRevit(Autodesk.Revit.DB.Document doc = null, Autodesk.Revit.DB.ElementId levelId = null)
+        {
+            if (doc == null || levelId == null) throw new ArgumentNullException();
+
+            return Autodesk.Revit.DB.Wall.Create(
+                doc,
+                BaseLine.ToRevit(),
+                levelId,
+                false
+                );
+        }
+
+        public Wall FromRhino(Extrusion rhinoObject)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Extrusion ToRhino()
+        {
+            throw new System.NotImplementedException();
+        }
+
 
         #endregion
 

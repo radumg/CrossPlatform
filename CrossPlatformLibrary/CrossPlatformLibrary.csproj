@@ -61,6 +61,7 @@
     <Compile Include="BIM\Wall.cs" />
     <Compile Include="Geometry\Line.cs" />
     <Compile Include="Geometry\Point.cs" />
+    <Compile Include="Interfaces\IRhinoInterop.cs" />
     <Compile Include="Interfaces\IRevitInterop.cs" />
     <Compile Include="Library\Element.cs" />
     <Compile Include="Library\IO.cs" />

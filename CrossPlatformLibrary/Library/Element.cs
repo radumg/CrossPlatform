@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace CrossPlatform.Library
 {
-    public class Element
+    public class BaseElement
     {
         public string Id { get; internal set; }
 
-        public Element()
+        public BaseElement()
         {
             Id = Guid.NewGuid().ToString();
         }
