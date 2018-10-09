@@ -1,11 +1,8 @@
 #region Namespaces
 using System;
-using System.Collections.Generic;
 using System.Reflection;
-using Autodesk.Revit.ApplicationServices;
-using Autodesk.Revit.Attributes;
-using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
+using CrossPlatform.Revit;
 #endregion
 
 namespace CrossPlatform
@@ -15,6 +12,37 @@ namespace CrossPlatform
         private const string tabName = "CrossPlatform";
 
         public Result OnStartup(UIControlledApplication app)
+        {
+            try
+            {
+                CreateRibbonItems(app);
+            }
+            catch (Exception)
+            {
+                TaskDialog.Show("Error", "Could not add buttons to ribbon.");
+                return Result.Failed;
+            }
+
+            try
+            {
+                Revit.EventHandlers.RegisterEvents(app);
+            }
+            catch (Exception)
+            {
+                TaskDialog.Show("Error", "Could not register event handlers.");
+                return Result.Failed;
+            }
+
+            return Result.Succeeded;
+        }
+
+        public Result OnShutdown(UIControlledApplication app)
+        {
+            Revit.EventHandlers.DeregisterEvents(app);
+            return Result.Succeeded;
+        }
+
+        public void CreateRibbonItems(UIControlledApplication app)
         {
             // create ribbon tab
             app.CreateRibbonTab(tabName);
@@ -33,22 +61,8 @@ namespace CrossPlatform
                       );
 
             // add buttons to panels
-            try
-            {
-                cxUtilsPanel.AddItem(whoamiButton);
-            }
-            catch (Exception)
-            {
-                TaskDialog.Show("Error", "Could not add buttons to ribbon.");
-                return Result.Failed;
-            }
-
-            return Result.Succeeded;
+            cxUtilsPanel.AddItem(whoamiButton);
         }
 
-        public Result OnShutdown(UIControlledApplication a)
-        {
-            return Result.Succeeded;
-        }
     }
 }
