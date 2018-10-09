@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Application">
+    <Name>Application RevitApp</Name>
+    <Assembly>CrossPlatform.Revit.dll</Assembly>
+    <FullClassName>CrossPlatform.RevitApp</FullClassName>
+    <ClientId>3a1a5d66-3929-434c-9662-3d80908f557e</ClientId>
+    <VendorId>radugidei.com</VendorId>
+    <VendorDescription>Radu Gidei, http://www.github.com/radumg</VendorDescription>
+  </AddIn>
+</RevitAddIns>
