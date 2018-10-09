@@ -1,4 +1,4 @@
-﻿namespace RhinoApp
+﻿namespace CrossPlatform
 {
     ///<summary>
     /// <para>Every RhinoCommon .rhp assembly must have one and only one PlugIn-derived

@@ -7,7 +7,7 @@ using Grasshopper.Kernel;
 // folder in Grasshopper.
 // You can use the _GrasshopperDeveloperSettings Rhino command for that.
 
-namespace GrasshopperApp
+namespace CrossPlatform
 {
     public class GrasshopperAppComponent : GH_Component
     {

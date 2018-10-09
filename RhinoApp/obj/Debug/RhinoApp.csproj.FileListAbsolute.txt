@@ -8,3 +8,4 @@ C:\Users\radug\Documents\GitHub\CrossPlatform\RhinoApp\bin\CrossPlatform.pdb
 C:\Users\radug\Documents\GitHub\CrossPlatform\RhinoApp\obj\Debug\RhinoApp.csproj.CoreCompileInputs.cache
 C:\Users\radug\Documents\GitHub\CrossPlatform\RhinoApp\obj\Debug\CrossPlatform.dll
 C:\Users\radug\Documents\GitHub\CrossPlatform\RhinoApp\obj\Debug\CrossPlatform.pdb
+C:\Users\radug\Documents\GitHub\CrossPlatform\RhinoApp\obj\Debug\RhinoApp.csprojAssemblyReference.cache

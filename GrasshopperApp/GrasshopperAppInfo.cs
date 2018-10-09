@@ -2,7 +2,7 @@
 using System.Drawing;
 using Grasshopper.Kernel;
 
-namespace GrasshopperApp
+namespace CrossPlatform
 {
     public class GrasshopperAppInfo : GH_AssemblyInfo
     {

@@ -1,0 +1,20 @@
+﻿{
+  "license": "",
+  "file_hash": null,
+  "name": "CrossPlatform",
+  "version": "1.0.0",
+  "description": "CrossPlatform library for BiLT",
+  "group": "",
+  "keywords": null,
+  "dependencies": [],
+  "contents": "",
+  "engine_version": "2.0.1.0",
+  "engine": "dynamo",
+  "engine_metadata": "",
+  "site_url": "",
+  "repository_url": "https://github.com/radumg",
+  "contains_binaries": true,
+  "node_libraries": [
+    "CrossPlatform.Dynamo, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}
