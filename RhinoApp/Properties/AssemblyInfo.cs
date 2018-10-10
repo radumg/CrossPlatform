@@ -21,7 +21,7 @@ using Rhino.PlugIns;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("CrossPlatform Rhino App")]
+[assembly: AssemblyTitle("CrossPlatform Rhino Plugin")]
 
 // This will be used also for the plug-in description.
 [assembly: AssemblyDescription("CrossPlatform RhinoApp plug-in")]
@@ -39,7 +39,7 @@ using Rhino.PlugIns;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("78457cc6-7a0a-4c7a-ad7d-3e6282c27043")] // This will also be the Guid of the Rhino plug-in
+[assembly: Guid("6040F296-BF5A-4DD0-8B3E-BE24AE1090A3")] // This will also be the Guid of the Rhino plug-in
 
 // Version information for an assembly consists of the following four values:
 //
