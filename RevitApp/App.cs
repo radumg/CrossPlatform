@@ -46,19 +46,26 @@ namespace CrossPlatform
 
             // create ribbon panels
             var cxBIMPanel = app.CreateRibbonPanel(tabName, "BIM");
-            var cxGeomPanel = app.CreateRibbonPanel(tabName, "Geometry");
             var cxUtilsPanel = app.CreateRibbonPanel(tabName, "Utils");
 
             // create ribbon buttons
             PushButtonData whoamiButton = new PushButtonData(
-                      "Who Am I ?", // buttonName
+                      " Who Am I ? ", // buttonName
                       "Tell me who i am.", //buttonText
                       Assembly.GetExecutingAssembly().Location,
                       "CrossPlatform.Revit.WhoAmICommand" //className
                       );
 
+            PushButtonData exportWallButton = new PushButtonData(
+                      " Pick a wall and export it to JSON ", // buttonName
+                      " Export wall ", //buttonText
+                      Assembly.GetExecutingAssembly().Location,
+                      "CrossPlatform.Revit.ExportWallCommand" //className
+                      );
+
             // add buttons to panels
             cxUtilsPanel.AddItem(whoamiButton);
+            cxBIMPanel.AddItem(exportWallButton);
         }
 
     }

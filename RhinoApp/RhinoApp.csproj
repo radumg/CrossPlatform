@@ -52,10 +52,11 @@
       <HintPath>C:\Program Files\Rhino 6\System\Rhino.UI.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Rhino\WhoAmICommand.cs" />
-    <Compile Include="Rhino\RhinoAppCommand.cs" />
+    <Compile Include="Rhino\MakeWallCommand.cs" />
     <Compile Include="RhinoAppPlugIn.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

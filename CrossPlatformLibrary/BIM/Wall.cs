@@ -9,8 +9,7 @@ namespace CrossPlatform.BIM
 {
     public class Wall :
         BaseElement,
-        IRevitInterop<Wall, ADSK.Wall>,
-        IRhinoInterop<Wall, Rhino.Geometry.Extrusion>
+        IRevitInterop<Wall, ADSK.Wall>
     {
         public Line BaseLine { get; set; }
         public double Thickness { get; set; }
@@ -81,15 +80,6 @@ namespace CrossPlatform.BIM
                 );
         }
 
-        public Wall FromRhino(Rhino.Geometry.Extrusion rhinoObject)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public Rhino.Geometry.Extrusion ToRhino()
-        {
-            throw new System.NotImplementedException();
-        }
 
         #endregion
     }

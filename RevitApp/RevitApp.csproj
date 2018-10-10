@@ -63,7 +63,7 @@
     <Compile Include="App.cs" />
     <Compile Include="Revit\EventHandlers.cs" />
     <Compile Include="Revit\WhoAmICommand.cs" />
-    <Compile Include="Revit\SampleCommand.cs" />
+    <Compile Include="Revit\ExportWallCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
