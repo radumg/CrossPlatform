@@ -122,15 +122,6 @@
         <member name="F:Rhino.Runtime.Mode.InvalidMode">
             <summary>Invalid mode; this is an error condition</summary>
         </member>
-        <member name="T:Rhino.Runtime.ConstOperationAttribute">
-            <summary>
-            Marks a method as const. This attribute is purely informative to help the
-            developer know that a method on a class does not alter the class itself.
-            </summary>
-        </member>
-        <member name="M:Rhino.Runtime.ConstOperationAttribute.#ctor">
-            <summary>Basic constructor to mark a method as const</summary>
-        </member>
         <member name="T:Rhino.Runtime.Skin">
             <summary>
             Represents a customized environment that changes the appearance of Rhino.
@@ -433,14 +424,6 @@
             <summary>
             Gets the serial number of the computer running Rhino.
             </summary>
-        </member>
-        <member name="P:Rhino.Runtime.HostUtils.CurrentOSLanguage">
-            <summary>
-            Get the current operating system language.
-            </summary>
-            <returns>A Windows LCID (on Windows and macOS).  On Windows, this will be 
-            LCID value regardless of those languages that Rhino supports.  On macOS, this only
-            returns LCID values for languages that Rhino does support.</returns>
         </member>
         <member name="P:Rhino.Runtime.HostUtils.DeviceId">
             <summary>
@@ -2043,56 +2026,6 @@
             </summary>
             <returns>The managed array.</returns>
         </member>
-        <member name="T:Rhino.Runtime.InteropWrappers.SimpleArrayLinetypePointer">
-            <summary>
-            Wrapper for a C++ ON_SimpleArray&lt;ON_Linetype*&gt;
-            If you are not writing C++ code then this class is not for you.
-            </summary>
-        </member>
-        <member name="M:Rhino.Runtime.InteropWrappers.SimpleArrayLinetypePointer.ConstPointer">
-            <summary>
-            Gets the const (immutable) pointer of this array.
-            </summary>
-            <returns>The const pointer.</returns>
-        </member>
-        <member name="M:Rhino.Runtime.InteropWrappers.SimpleArrayLinetypePointer.NonConstPointer">
-            <summary>
-            Gets the non-const pointer (for modification) of this array.
-            </summary>
-            <returns>The non-const pointer.</returns>
-        </member>
-        <member name="M:Rhino.Runtime.InteropWrappers.SimpleArrayLinetypePointer.#ctor">
-            <summary>
-            Initializes a new <see cref="T:Rhino.Runtime.InteropWrappers.SimpleArrayLinetypePointer"/> instance.
-            </summary>
-        </member>
-        <member name="P:Rhino.Runtime.InteropWrappers.SimpleArrayLinetypePointer.Count">
-            <summary>
-            Gets the amount of linetypes in this array.
-            </summary>
-        </member>
-        <member name="M:Rhino.Runtime.InteropWrappers.SimpleArrayLinetypePointer.Finalize">
-            <summary>
-            Passively reclaims unmanaged resources when the class user did not explicitly call Dispose().
-            </summary>
-        </member>
-        <member name="M:Rhino.Runtime.InteropWrappers.SimpleArrayLinetypePointer.Dispose">
-            <summary>
-            Actively reclaims unmanaged resources that this instance uses.
-            </summary>
-        </member>
-        <member name="M:Rhino.Runtime.InteropWrappers.SimpleArrayLinetypePointer.Dispose(System.Boolean)">
-            <summary>
-            Dispose
-            </summary>
-            <param name="disposing"></param>
-        </member>
-        <member name="M:Rhino.Runtime.InteropWrappers.SimpleArrayLinetypePointer.ToNonConstArray">
-            <summary>
-            Copies the unmanaged array to a managed counterpart.
-            </summary>
-            <returns>The managed array.</returns>
-        </member>
         <member name="T:Rhino.Runtime.InteropWrappers.SimpleArrayExtrusionPointer">
             <summary>
             Wrapper for a C++ ON_SimpleArray&lt;ON_Extrusion*&gt; or ON_SimpleArray&lt;const ON_Extrusion*&gt;
@@ -2386,56 +2319,6 @@
             </summary>
             <param name="arrayOfArray">This parameter can be null. Then, the marshaler will act accordingly.</param>
             <param name="nestedFirstLevelNulls">Behavior for null nested items.</param>
-        </member>
-        <member name="T:Rhino.Runtime.InteropWrappers.SimpleArrayClippingPlaneObjectPointer">
-            <summary>
-            ON_SimpleArray of CRhinoClippingPlaneObject*
-            </summary>
-        </member>
-        <member name="M:Rhino.Runtime.InteropWrappers.SimpleArrayClippingPlaneObjectPointer.ConstPointer">
-            <summary>
-            Gets the const (immutable) pointer of this array.
-            </summary>
-            <returns>The const pointer.</returns>
-        </member>
-        <member name="M:Rhino.Runtime.InteropWrappers.SimpleArrayClippingPlaneObjectPointer.NonConstPointer">
-            <summary>
-            Gets the non-const pointer (for modification) of this array.
-            </summary>
-            <returns>The non-const pointer.</returns>
-        </member>
-        <member name="M:Rhino.Runtime.InteropWrappers.SimpleArrayClippingPlaneObjectPointer.#ctor">
-            <summary>
-            Initializes a new <see cref="T:Rhino.Runtime.InteropWrappers.SimpleArrayClippingPlaneObjectPointer"/> instance.
-            </summary>
-        </member>
-        <member name="P:Rhino.Runtime.InteropWrappers.SimpleArrayClippingPlaneObjectPointer.Count">
-            <summary>
-            Gets the amount of clipping planes in this array.
-            </summary>
-        </member>
-        <member name="M:Rhino.Runtime.InteropWrappers.SimpleArrayClippingPlaneObjectPointer.Add(Rhino.DocObjects.ClippingPlaneObject,System.Boolean)">
-            <summary>
-            Adds a clipping plane to the list.
-            </summary>
-            <param name="clippingplane">A clipping plane to add.</param>
-            <param name="asConst">Whether this clipping plane should be treated as non-modifiable.</param>
-        </member>
-        <member name="M:Rhino.Runtime.InteropWrappers.SimpleArrayClippingPlaneObjectPointer.Finalize">
-            <summary>
-            Passively reclaims unmanaged resources when the class user did not explicitly call Dispose().
-            </summary>
-        </member>
-        <member name="M:Rhino.Runtime.InteropWrappers.SimpleArrayClippingPlaneObjectPointer.Dispose">
-            <summary>
-            Actively reclaims unmanaged resources that this instance uses.
-            </summary>
-        </member>
-        <member name="M:Rhino.Runtime.InteropWrappers.SimpleArrayClippingPlaneObjectPointer.Dispose(System.Boolean)">
-            <summary>
-            
-            </summary>
-            <param name="disposing"></param>
         </member>
         <member name="T:Rhino.Runtime.InteropWrappers.MeshPointDataStruct">
             <summary>
@@ -3889,28 +3772,6 @@
             Settings serialization service
             </summary>
         </member>
-        <member name="P:Rhino.Runtime.ISettingsService.SupportsPlist">
-            <summary>
-            If true then WriteToPlist and ReadFromPlist are alled to serialize settings
-            otherwise; WriteSettings and ReadSettings are called using XML in a memroy
-            stream.
-            </summary>
-            <value><c>true</c> if supports plist; otherwise, <c>false</c>.</value>
-        </member>
-        <member name="M:Rhino.Runtime.ISettingsService.DeleteItem(Rhino.PersistentSettings,System.String)">
-            <summary>
-            Called when a setting value is deleted from a PersistentSettings dictionary.
-            </summary>
-            <param name="persistentSettings">Persistent settings.</param>
-            <param name="key">Key.</param>
-        </member>
-        <member name="M:Rhino.Runtime.ISettingsService.DeleteChild(Rhino.PersistentSettings,System.String)">
-            <summary>
-            Called when a child key is deleted from a PersistentSettings dictionary.
-            </summary>
-            <param name="persistentSettings">Persistent settings.</param>
-            <param name="key">Key.</param>
-        </member>
         <member name="P:Rhino.Runtime.ISettingsService.SupportsAllUsers">
             <summary>
             Return true if the settings system supports reading from the AllUsers location
@@ -3951,16 +3812,6 @@
             Return <c>true</c>, if settings was written, <c>false</c> otherwise.
             </returns>
         </member>
-        <member name="M:Rhino.Runtime.ISettingsService.WriteToPlist(System.Boolean,Rhino.PersistentSettings,System.Collections.Generic.Dictionary{System.String,Rhino.PersistentSettings},System.Action{System.Boolean,System.Boolean})">
-            <summary>
-            Writes the settings.
-            </summary>
-            <returns><c>true</c>, if settings was writed, <c>false</c> otherwise.</returns>
-            <param name="isShuttingDown">If set to <c>true</c> is shutting down.</param>
-            <param name="settings">Settings.</param>
-            <param name="commandSettings">Command settings.</param>
-            <param name="writing">Writing.</param>
-        </member>
         <member name="M:Rhino.Runtime.ISettingsService.ReadSettings(System.String)">
             <summary>
             Read settings XML contents into a Stream which will get passed to a XML
@@ -3971,16 +3822,6 @@
             Returns null if the file does not exist or could not be read, a valid
             Stream otherwise.
             </returns>
-        </member>
-        <member name="M:Rhino.Runtime.ISettingsService.ReadFromPlist(System.Guid,Rhino.PersistentSettings@,System.Func{System.String,Rhino.PersistentSettings})">
-            <summary>
-            Read settings directly from some system provided archive.  This is used
-            on Mac to read settings from the com.mcneel.rhinoceros.plist
-            </summary>
-            <returns><c>true</c>, if read settings was directed, <c>false</c> otherwise.</returns>
-            <param name="plugInId">Plug in identifier.</param>
-            <param name="settings">Settings.</param>
-            <param name="commandSettings">Command settings.</param>
         </member>
         <member name="M:Rhino.Runtime.ISettingsService.DeleteSettingsFile(System.String)">
             <summary>
@@ -4027,28 +3868,6 @@
             time Service is called
             </summary>
         </member>
-        <member name="P:Rhino.Runtime.FileSettingsService.SupportsPlist">
-            <summary>
-            If true then WriteToPlist and ReadFromPlist are alled to serialize settings
-            otherwise; WriteSettings and ReadSettings are called using XML in a memroy
-            stream.
-            </summary>
-            <value><c>true</c> if supports plist; otherwise, <c>false</c>.</value>
-        </member>
-        <member name="M:Rhino.Runtime.FileSettingsService.DeleteItem(Rhino.PersistentSettings,System.String)">
-            <summary>
-            Called when a setting value is deleted from a PersistentSettings dictionary.
-            </summary>
-            <param name="persistentSettings">Persistent settings.</param>
-            <param name="key">Key.</param>
-        </member>
-        <member name="M:Rhino.Runtime.FileSettingsService.DeleteChild(Rhino.PersistentSettings,System.String)">
-            <summary>
-            Called when a child key is deleted from a PersistentSettings dictionary.
-            </summary>
-            <param name="persistentSettings">Persistent settings.</param>
-            <param name="key">Key.</param>
-        </member>
         <member name="P:Rhino.Runtime.FileSettingsService.SupportsAllUsers">
             <summary>
             Return true if the settings system supports reading from the AllUsers location
@@ -4067,26 +3886,6 @@
             Return true if settings changed events should be raised immediately after writing
             the settings file.
             </summary>
-        </member>
-        <member name="M:Rhino.Runtime.FileSettingsService.WriteToPlist(System.Boolean,Rhino.PersistentSettings,System.Collections.Generic.Dictionary{System.String,Rhino.PersistentSettings},System.Action{System.Boolean,System.Boolean})">
-            <summary>
-            Writes the settings.
-            </summary>
-            <returns><c>true</c>, if settings was writed, <c>false</c> otherwise.</returns>
-            <param name="isShuttingDown">If set to <c>true</c> is shutting down.</param>
-            <param name="settings">Settings.</param>
-            <param name="commandSettings">Command settings.</param>
-            <param name="writing">Writing.</param>
-        </member>
-        <member name="M:Rhino.Runtime.FileSettingsService.ReadFromPlist(System.Guid,Rhino.PersistentSettings@,System.Func{System.String,Rhino.PersistentSettings})">
-            <summary>
-            Read settings directly from some system provided archive.  This is used
-            on Mac to read settings from the com.mcneel.rhinoceros.plist
-            </summary>
-            <returns><c>true</c>, if read settings was directed, <c>false</c> otherwise.</returns>
-            <param name="plugInId">Plug in identifier.</param>
-            <param name="settings">Settings.</param>
-            <param name="commandSettings">Command settings.</param>
         </member>
         <member name="M:Rhino.Runtime.FileSettingsService.WriteSettings(System.Boolean,System.IO.Stream,System.String,System.Action{System.Boolean,System.Boolean})">
             <summary>
@@ -4296,12 +4095,6 @@
         </member>
         <member name="F:Rhino.Geometry.Dimension.ForceText.Left">
             <summary> </summary>
-        </member>
-        <member name="F:Rhino.Geometry.Dimension.ForceText.HintRight">
-            <summary> If override isn't specified and text doesn't fit, move it right </summary>
-        </member>
-        <member name="F:Rhino.Geometry.Dimension.ForceText.HintLeft">
-            <summary> If override isn't specified and text doesn't fit, move it left </summary>
         </member>
         <member name="M:Rhino.Geometry.Dimension.GetTextTransform(Rhino.DocObjects.ViewportInfo,Rhino.DocObjects.DimensionStyle,System.Double,System.Boolean)">
             <summary> Get the transform for this text object's text geometry </summary>
@@ -4554,60 +4347,23 @@
              Custom algorithm. (Not built-in. Provided for use by 3rd party developers.)
             </summary>
         </member>
-        <member name="T:Rhino.Geometry.SubD.NurbsSurfaceType">
-            <summary>
-            ON_SubD::NurbsSurfaceType specifies what type of NURBS surfaces are returned by ON_SubD.GetLimitSurfaceNurbs()
-            </summary>
-        </member>
-        <member name="F:Rhino.Geometry.SubD.NurbsSurfaceType.Unset">
-            <summary>
-             Not a valid type. Used to indicate the type has not been set and to encourage developers to explicitly specify a type.
-             When in doubt, specify NurbsSurfaceType::Large.
-            </summary>
-        </member>
-        <member name="F:Rhino.Geometry.SubD.NurbsSurfaceType.Large">
-            <summary>
-             A single NURBS surface will be created for each SubD quad. Near extraordinary vertices, the surfaces may
-             have lots of knots.
-            </summary>
-        </member>
-        <member name="F:Rhino.Geometry.SubD.NurbsSurfaceType.Medium">
-            <summary>
-             NURBS surfaces will be as large as possible without the addition of extra knots. 
-             Near extraordinary vertices, the surfaces may
-             have lots of knots.
-             This option is prefered when a user wants larger NURBS surfaces but not at the cost of addtional NURBS control points.
-            </summary>
-        </member>
-        <member name="F:Rhino.Geometry.SubD.NurbsSurfaceType.Small">
-            <summary>
-             NURBS surfaces will not be merged and will have clamped knots.
-            </summary>
-        </member>
-        <member name="F:Rhino.Geometry.SubD.NurbsSurfaceType.Unprocessed">
-            <summary>
-             NURBS surfaces will not be merged and will have unclamped uniform knots.
-             This is useful as a starting point for customized merging and modifying
-             continuity at extraordinary vertices.
-            </summary>
-        </member>
-        <member name="F:Rhino.Geometry.SubD.PatchFragmentTypeXYX.Unset">
+        <member name="F:Rhino.Geometry.SubD.PatchType.Unset">
             <summary>Not a valid patch type.</summary>
         </member>
-        <member name="F:Rhino.Geometry.SubD.PatchFragmentTypeXYX.BicubicSingle">
-            <summary>This fragment is a single 4x4 bicubic span covering the entire SubD region identified by m_face_region.</summary>
+        <member name="F:Rhino.Geometry.SubD.PatchType.Bicubic">
+            <summary>Entire subdivision face is an exact bicubic patch.</summary>
         </member>
-        <member name="F:Rhino.Geometry.SubD.PatchFragmentTypeXYX.BicubicQuadrant">
-            <summary>The bispans in this fragment are quadrants of the SubD region identified by m_face_region.</summary>
+        <member name="F:Rhino.Geometry.SubD.PatchType.BicubicQuadrant">
+            <summary>A quadrant of the subdivision face is an exact bicubic patch.</summary>
         </member>
-        <member name="F:Rhino.Geometry.SubD.FragmentBispanType.None">
-            <summary>No bispan.</summary>
+        <member name="F:Rhino.Geometry.SubD.PatchType.ApproximateBicubic">
+            <summary>Entire subdivision face is approximately a bicubic patch.</summary>
         </member>
-        <member name="F:Rhino.Geometry.SubD.FragmentBispanType.Exact">
-            <summary>Entire region identified by m_face_region is an exact bicubic patch.</summary>
+        <member name="F:Rhino.Geometry.SubD.PatchType.ApproximateBicubicQuadrant">
+            <summary>A quadrant of the subdivision face is approximately a bicubic patch.</summary>
         </member>
-        <member name="F:Rhino.Geometry.SubD.FragmentBispanType.Approximate">
-            <summary>Entire region identified by m_face_region is approximately a bicubic patch.</summary>
+        <member name="F:Rhino.Geometry.SubD.PatchType.None">
+            <summary>A patch cannot be calculated at the current subdivision level.</summary>
         </member>
         <member name="T:Rhino.Geometry.SubD.InteriorCreaseOption">
             <summary>
@@ -7613,14 +7369,6 @@
             <param name="tolerance">The tolerance. When in doubt, use the document's model absolute tolerance.</param>
             <returns>The Brep without holes if successful, null otherwise.</returns>
         </member>
-        <member name="M:Rhino.Geometry.Brep.RemoveHoles(System.Collections.Generic.IEnumerable{Rhino.Geometry.ComponentIndex},System.Double)">
-            <summary>
-            Removes inner loops, or holes, in a Brep.
-            </summary>
-            <param name="loops">A list of BrepLoop component indexes, where BrepLoop.LoopType == Rhino.Geometry.BrepLoopType.Inner.</param>
-            <param name="tolerance">The tolerance. When in doubt, use the document's model absolute tolerance.</param>
-            <returns>The Brep without holes if successful, null otherwise.</returns>
-        </member>
         <member name="M:Rhino.Geometry.Brep.CullUnusedFaces">
             <summary>Culls faces with m_face_index == -1.</summary>
             <returns>true if operation succeeded; false otherwise.</returns>
@@ -9183,36 +8931,6 @@
             </summary>
             <returns>The enumerator.</returns>
         </member>
-        <member name="T:Rhino.Geometry.Collections.HiddenLineDrawingPointList">
-            <summary>
-            Provides access to all the HiddenLineDrawingPoint objects in a HiddenLineDrawing object.
-            </summary>
-        </member>
-        <member name="P:Rhino.Geometry.Collections.HiddenLineDrawingPointList.Count">
-            <summary>
-            Gets the number of HiddenLineDrawingPoint objects.
-            </summary>
-        </member>
-        <member name="P:Rhino.Geometry.Collections.HiddenLineDrawingPointList.Item(System.Int32)">
-            <summary>
-            Get the HiddenLineDrawingPoint at a given index.
-            </summary>
-            <param name="index">Index of HiddenLineDrawingPoint to access.</param>
-            <exception cref="T:System.IndexOutOfRangeException">Thrown when the index is invalid.</exception>
-            <returns>The HiddenLineDrawingPoint at [index].</returns>
-        </member>
-        <member name="M:Rhino.Geometry.Collections.HiddenLineDrawingPointList.GetEnumerator">
-            <summary>
-            Gets an enumerator that visits all curves.
-            </summary>
-            <returns>The enumerator.</returns>
-        </member>
-        <member name="M:Rhino.Geometry.Collections.HiddenLineDrawingPointList.System#Collections#IEnumerable#GetEnumerator">
-            <summary>
-            Gets the same enumerator as <see cref="M:Rhino.Geometry.Collections.HiddenLineDrawingPointList.GetEnumerator"/>.
-            </summary>
-            <returns>The enumerator.</returns>
-        </member>
         <member name="T:Rhino.Geometry.Collections.HiddenLineDrawingSegmentList">
             <summary>
             Provides access to all the HiddenLineDrawingCurve objects in a HiddenLineDrawing object.
@@ -9350,20 +9068,6 @@
             <param name="x">X component of vertex location.</param>
             <param name="y">Y component of vertex location.</param>
             <param name="z">Z component of vertex location.</param>
-            <returns>true on success, false on failure.</returns>
-        </member>
-        <member name="M:Rhino.Geometry.Collections.MeshVertexList.SetVertex(System.Int32,System.Double,System.Double,System.Double,System.Boolean)">
-            <summary>
-            Sets or adds a vertex to the Vertex List.
-            <para>If [index] is less than [Count], the existing vertex at [index] will be modified.</para>
-            <para>If [index] equals [Count], a new vertex is appended to the end of the vertex list.</para> 
-            <para>If [index] is larger than [Count], the function will return false.</para>
-            </summary>
-            <param name="index">Index of vertex to set.</param>
-            <param name="x">X component of vertex location.</param>
-            <param name="y">Y component of vertex location.</param>
-            <param name="z">Z component of vertex location.</param>
-            <param name="updateNormals">Set to true if you'd like the vertex and face normals impacted by the change updated.</param>
             <returns>true on success, false on failure.</returns>
         </member>
         <member name="M:Rhino.Geometry.Collections.MeshVertexList.SetVertex(System.Int32,System.Double,System.Double,System.Double)">
@@ -9977,22 +9681,17 @@
         </member>
         <member name="P:Rhino.Geometry.Collections.MeshFaceList.Count">
             <summary>
-            Gets or sets the number of mesh faces. When getting this can includes invalid faces.
+            Gets or sets the number of mesh faces.
             </summary>
         </member>
         <member name="P:Rhino.Geometry.Collections.MeshFaceList.QuadCount">
             <summary>
-            Gets the number of faces that are valid quads (4 corners).
+            Gets the number of faces that are quads (4 corners).
             </summary>
         </member>
         <member name="P:Rhino.Geometry.Collections.MeshFaceList.TriangleCount">
             <summary>
-            Gets the number of faces that are valid triangles (3 corners).
-            </summary>
-        </member>
-        <member name="P:Rhino.Geometry.Collections.MeshFaceList.VertexCount">
-            <summary>
-            Gets the number of vertices in the mesh of this face list
+            Gets the number of faces that are triangles (3 corners).
             </summary>
         </member>
         <member name="P:Rhino.Geometry.Collections.MeshFaceList.Capacity">
@@ -10145,22 +9844,10 @@
         </member>
         <member name="M:Rhino.Geometry.Collections.MeshFaceList.ToIntArray(System.Boolean)">
             <summary>
-            Copies all of the face indices to a linear array of indices per face.
-            
-            Note that this includes indices from invalid faces too.
+            Copies all of the faces to a linear array of indices.
             </summary>
             <returns>The int array. This method never returns null.</returns>
             <param name="asTriangles">If set to <c>true</c> as triangles.</param>
-        </member>
-        <member name="M:Rhino.Geometry.Collections.MeshFaceList.ToIntArray(System.Boolean,System.Collections.Generic.List{System.Int32}@)">
-            <summary>
-            Copies all of the faces to a linear array of indices.
-            
-            Clean-up of vertex indices if replacedIndices is a valid List&lt;int&gt;
-            /// </summary>
-            <returns>The int array. This method never returns null.</returns>
-            <param name="asTriangles">If set to <c>true</c> as triangles.</param>
-            <param name="replacedIndices">List is populated with vertex indices that were replaced with 0. If replacedIndices is null there will be no cleanup</param>
         </member>
         <member name="M:Rhino.Geometry.Collections.MeshFaceList.DeleteFaces(System.Collections.Generic.IEnumerable{System.Int32})">
             <summary>
@@ -10169,27 +9856,11 @@
             <param name="faceIndexes">An array containing all the face indices to be removed.</param>
             <returns>The number of faces deleted on success.</returns>
         </member>
-        <member name="M:Rhino.Geometry.Collections.MeshFaceList.DeleteFaces(System.Collections.Generic.IEnumerable{System.Int32},System.Boolean)">
-            <summary>
-            Removes a collection of faces from the mesh without affecting the remaining geometry.
-            </summary>
-            <param name="faceIndexes">An array containing all the face indices to be removed.</param>
-            <param name="compact">Delete any unreferenced objects from arrays, reindexes as needed, and shrinks arrays to minimum required size.</param>
-            <returns>The number of faces deleted on success.</returns>
-        </member>
         <member name="M:Rhino.Geometry.Collections.MeshFaceList.RemoveAt(System.Int32)">
             <summary>
             Removes a face from the mesh.
             </summary>
             <param name="index">The index of the face that will be removed.</param>
-            <exception cref="T:System.ArgumentOutOfRangeException">If index is &lt; 0 or &gt;= Count.</exception>
-        </member>
-        <member name="M:Rhino.Geometry.Collections.MeshFaceList.RemoveAt(System.Int32,System.Boolean)">
-            <summary>
-            Removes a face from the mesh.
-            </summary>
-            <param name="index">The index of the face that will be removed.</param>
-            <param name="compact">Delete any unreferenced objects from arrays, reindexes as needed, and shrinks arrays to minimum required size.</param>
             <exception cref="T:System.ArgumentOutOfRangeException">If index is &lt; 0 or &gt;= Count.</exception>
         </member>
         <member name="M:Rhino.Geometry.Collections.MeshFaceList.ConvertQuadsToTriangles">
@@ -12491,13 +12162,13 @@
             Add geometry that should be included in the calculation
             </summary>
             <param name="geometry">
-            Currently only points, point clouds, curves, meshes, breps, surfaces, and extrusions are supported
+            Currently only curves, meshes, breps, surfaces, and extrusions are supported
             </param>
             <param name="xform"></param>
             <param name="tag">arbitrary data to be associated with this geometry</param>
             <returns>
             true if the type of geometry can be added for calculations.
-            Currently only points, point clouds, curves, meshes, breps, surfaces and extrusions are supported
+            Currently only curves, meshes, breps, surfaces and extrusions are supported
             </returns>
         </member>
         <member name="T:Rhino.Geometry.HiddenLineDrawing">
@@ -12553,11 +12224,6 @@
         <member name="P:Rhino.Geometry.HiddenLineDrawing.Segments">
             <summary>
             Subcurve objects calculated by the hidden line drawing.
-            </summary>
-        </member>
-        <member name="P:Rhino.Geometry.HiddenLineDrawing.Points">
-            <summary>
-            Point objects calculated by the hidden line drawing.
             </summary>
         </member>
         <member name="M:Rhino.Geometry.HiddenLineDrawing.AddObject(Rhino.Geometry.GeometryBase,Rhino.Geometry.Transform,System.Int32)">
@@ -12626,66 +12292,6 @@
             <summary>
             Returns the extra data used to cross-reference the object specified in
             HiddenLineDrawing.AddObject.
-            </summary>
-        </member>
-        <member name="T:Rhino.Geometry.HiddenLineDrawingPoint">
-            <summary>
-            Points generated from source objects which coorespond to point and point cloud source objects.
-            </summary>
-        </member>
-        <member name="P:Rhino.Geometry.HiddenLineDrawingPoint.SourceObject">
-            <summary>
-            Return the source object that this point came from.
-            </summary>
-        </member>
-        <member name="P:Rhino.Geometry.HiddenLineDrawingPoint.SourceObjectComponentIndex">
-            <summary>
-            Component of source object part that generated this curve.
-            </summary>
-        </member>
-        <member name="P:Rhino.Geometry.HiddenLineDrawingPoint.ClippingPlaneIndex">
-            <summary>
-            Index into HiddenLineDrawing.ClippingPlanes when SilhouetteType == SilhouetteType.SectionCut.
-            </summary>
-        </member>
-        <member name="P:Rhino.Geometry.HiddenLineDrawingPoint.Location">
-            <summary>
-            Returns the location of this object in HiddenLineDrawing coordinates.
-            </summary>
-        </member>
-        <member name="P:Rhino.Geometry.HiddenLineDrawingPoint.Index">
-            <summary>
-            Index of this object in HiddenLineDrawing.Points.
-            </summary>
-        </member>
-        <member name="T:Rhino.Geometry.HiddenLineDrawingPoint.Visibility">
-            <summary>
-            The different types of HiddenLineObjectPoint visiblity
-            </summary>
-        </member>
-        <member name="F:Rhino.Geometry.HiddenLineDrawingPoint.Visibility.Unset">
-            <summary>
-            Unset value
-            </summary>
-        </member>
-        <member name="F:Rhino.Geometry.HiddenLineDrawingPoint.Visibility.Visible">
-            <summary>
-            Visible
-            </summary>
-        </member>
-        <member name="F:Rhino.Geometry.HiddenLineDrawingPoint.Visibility.Hidden">
-            <summary>
-            Hidden
-            </summary>
-        </member>
-        <member name="F:Rhino.Geometry.HiddenLineDrawingPoint.Visibility.Duplicate">
-            <summary>
-            Duplicate
-            </summary>
-        </member>
-        <member name="P:Rhino.Geometry.HiddenLineDrawingPoint.PointVisibility">
-            <summary>
-            Returns the point's visibility
             </summary>
         </member>
         <member name="T:Rhino.Geometry.HiddenLineDrawingObjectCurve">
@@ -15621,21 +15227,12 @@
             <returns></returns>
         </member>
         <member name="M:Rhino.Geometry.Mesh.CreateFromCone(Rhino.Geometry.Cone,System.Int32,System.Int32)">
-            <summary>Constructs a solid mesh cone.</summary>
+            <summary>Constructs a mesh cone</summary>
             <param name="cone"></param>
-            <param name="vertical">Number of faces in the top-to-bottom direction.</param>
-            <param name="around">Number of faces around the cone.</param>
+            <param name="vertical">Number of faces in the top-to-bottom direction</param>
+            <param name="around">Number of faces around the cone</param>
             <exception cref="T:System.ArgumentException">Thrown when cone is invalid.</exception>
-            <returns>A valid mesh if successful.</returns>
-        </member>
-        <member name="M:Rhino.Geometry.Mesh.CreateFromCone(Rhino.Geometry.Cone,System.Int32,System.Int32,System.Boolean)">
-            <summary>Constructs a mesh cone.</summary>
-            <param name="cone"></param>
-            <param name="vertical">Number of faces in the top-to-bottom direction.</param>
-            <param name="around">Number of faces around the cone.</param>
-            <param name="solid">If false the mesh will be open with no faces on the circular planar portion.</param>
-            <exception cref="T:System.ArgumentException">Thrown when cone is invalid.</exception>
-            <returns>A valid mesh if successful.</returns>
+            <returns></returns>
         </member>
         <member name="M:Rhino.Geometry.Mesh.CreateFromPlanarBoundary(Rhino.Geometry.Curve,Rhino.Geometry.MeshingParameters)">
             <summary>
@@ -15821,6 +15418,42 @@
             <param name="faceted">Specifies whether the pipe is faceted, or not.</param>
             <param name="intervals">A series of intervals to pipe. This value can be null.</param>
             <returns>A new mesh, or null on failure.</returns>
+        </member>
+        <member name="M:Rhino.Geometry.Mesh.WithShutLining(System.Boolean,System.Double,System.Collections.Generic.IEnumerable{Rhino.Geometry.ShutLiningCurveInfo})">
+            <summary>
+            Constructs new mesh from the current one, with shut lining applied to it.
+            </summary>
+            <param name="faceted">Specifies whether the shutline is faceted.</param>
+            <param name="tolerance">The tolerance of the shutline.</param>
+            <param name="curves">A collection of curve arguments.</param>
+            <returns>A new mesh with shutlining. Null on failure.</returns>
+            <exception cref="T:System.ArgumentNullException">If curves is null.</exception>
+            <exception cref="T:System.InvalidOperationException">If displacement failed
+            because of an error. The exception message specifies the error.</exception>
+        </member>
+        <member name="M:Rhino.Geometry.Mesh.WithDisplacement(Rhino.Geometry.MeshDisplacementInfo)">
+            <summary>
+            Constructs new mesh from the current one, with displacement applied to it.
+            </summary>
+            <param name="displacement">Information on mesh displacement.</param>
+            <returns>A new mesh with shutlining.</returns>
+            <exception cref="T:System.ArgumentNullException">If displacer is null.</exception>
+            <exception cref="T:System.InvalidOperationException">If displacement failed
+            because of an error. The exception message specifies the error.</exception>
+        </member>
+        <member name="M:Rhino.Geometry.Mesh.WithEdgeSoftening(System.Double,System.Boolean,System.Boolean,System.Boolean,System.Double)">
+            <summary>
+            Constructs new mesh from the current one, with edge softening applied to it.
+            </summary>
+            <param name="softeningRadius">The softening radius.</param>
+            <param name="chamfer">Specifies whether to chamfer the edges.</param>
+            <param name="faceted">Specifies whether the edges are faceted.</param>
+            <param name="force">Specifies whether to soften edges despite too large a radius.</param>
+            <param name="angleThreshold">Threshold angle (in degrees) which controls whether an edge is softened or not.
+            The angle refers to the angles between the adjacent faces of an edge.</param>
+            <returns>A new mesh with soft edges.</returns>
+            <exception cref="T:System.InvalidOperationException">If displacement failed
+            because of an error. The exception message specifies the error.</exception>
         </member>
         <member name="M:Rhino.Geometry.Mesh.#ctor">
             <summary>Initializes a new empty mesh.</summary>
@@ -16120,20 +15753,6 @@
             <param name="plane">If SmoothingCoordinateSystem.CPlane specified, then the construction plane.</param>
             <returns>True if successful, false otherwise.</returns>
         </member>
-        <member name="M:Rhino.Geometry.Mesh.Smooth(System.Collections.Generic.IEnumerable{System.Int32},System.Double,System.Boolean,System.Boolean,System.Boolean,System.Boolean,Rhino.Geometry.SmoothingCoordinateSystem,Rhino.Geometry.Plane)">
-            <summary>
-            Smooths part of a mesh by averaging the positions of mesh vertices in a specified region.
-            </summary>
-            <param name="vertexIndices">The mesh vertex indices that specify the part of the mesh to smooth.</param>
-            <param name="smoothFactor">The smoothing factor, which controls how much vertices move towards the average of the neighboring vertices.</param>
-            <param name="bXSmooth">When true vertices move in X axis direction.</param>
-            <param name="bYSmooth">When true vertices move in Y axis direction.</param>
-            <param name="bZSmooth">When true vertices move in Z axis direction.</param>
-            <param name="bFixBoundaries">When true vertices along naked edges will not be modified.</param>
-            <param name="coordinateSystem">The coordinates to determine the direction of the smoothing.</param>
-            <param name="plane">If SmoothingCoordinateSystem.CPlane specified, then the construction plane.</param>
-            <returns>True if successful, false otherwise.</returns>
-        </member>
         <member name="M:Rhino.Geometry.Mesh.Unweld(System.Double,System.Boolean)">
             <summary>
             Makes sure that faces sharing an edge and having a difference of normal greater
@@ -16310,14 +15929,6 @@
             <code source='examples\cs\ex_createmeshfrombrep.cs' lang='cs'/>
             <code source='examples\py\ex_createmeshfrombrep.py' lang='py'/>
             </example>
-        </member>
-        <member name="M:Rhino.Geometry.Mesh.Append(System.Collections.Generic.IEnumerable{Rhino.Geometry.Mesh})">
-            <summary>
-            Append a list of meshes. This function is much more efficient than making
-            repeated calls to Mesh.Append(Mesh) when lots of meshes are being joined
-            into a single large mesh.
-            </summary>
-            <param name="meshes">Meshes to append to this one.</param>
         </member>
         <member name="M:Rhino.Geometry.Mesh.ClosestPoint(Rhino.Geometry.Point3d)">
             <summary>
@@ -16533,42 +16144,6 @@
             </summary>
             <param name="meshData">The data that will be unlocked.</param>
         </member>
-        <member name="M:Rhino.Geometry.Mesh.WithShutLining(System.Boolean,System.Double,System.Collections.Generic.IEnumerable{Rhino.Geometry.ShutLiningCurveInfo})">
-            <summary>
-            Constructs new mesh from the current one, with shut lining applied to it.
-            </summary>
-            <param name="faceted">Specifies whether the shutline is faceted.</param>
-            <param name="tolerance">The tolerance of the shutline.</param>
-            <param name="curves">A collection of curve arguments.</param>
-            <returns>A new mesh with shutlining. Null on failure.</returns>
-            <exception cref="T:System.ArgumentNullException">If curves is null.</exception>
-            <exception cref="T:System.InvalidOperationException">If displacement failed
-            because of an error. The exception message specifies the error.</exception>
-        </member>
-        <member name="M:Rhino.Geometry.Mesh.WithDisplacement(Rhino.Geometry.MeshDisplacementInfo)">
-            <summary>
-            Constructs new mesh from the current one, with displacement applied to it.
-            </summary>
-            <param name="displacement">Information on mesh displacement.</param>
-            <returns>A new mesh with shutlining.</returns>
-            <exception cref="T:System.ArgumentNullException">If displacer is null.</exception>
-            <exception cref="T:System.InvalidOperationException">If displacement failed
-            because of an error. The exception message specifies the error.</exception>
-        </member>
-        <member name="M:Rhino.Geometry.Mesh.WithEdgeSoftening(System.Double,System.Boolean,System.Boolean,System.Boolean,System.Double)">
-            <summary>
-            Constructs new mesh from the current one, with edge softening applied to it.
-            </summary>
-            <param name="softeningRadius">The softening radius.</param>
-            <param name="chamfer">Specifies whether to chamfer the edges.</param>
-            <param name="faceted">Specifies whether the edges are faceted.</param>
-            <param name="force">Specifies whether to soften edges despite too large a radius.</param>
-            <param name="angleThreshold">Threshold angle (in degrees) which controls whether an edge is softened or not.
-            The angle refers to the angles between the adjacent faces of an edge.</param>
-            <returns>A new mesh with soft edges.</returns>
-            <exception cref="T:System.InvalidOperationException">If displacement failed
-            because of an error. The exception message specifies the error.</exception>
-        </member>
         <member name="M:Rhino.Geometry.Mesh.GetNakedEdgePointStatus">
             <summary>
             Returns an array of bool values equal in length to the number of vertices in this
@@ -16718,7 +16293,6 @@
             <param name="formula">The Loop subdivision formula.</param>
             <param name="settings">An instance of the settings class, or null for defaults.</param>
             <returns>A new mesh. null is never returned.</returns>
-            <exclude />
         </member>
         <member name="M:Rhino.Geometry.Mesh.CreateRefinedCatmullClarkMesh(Rhino.Geometry.Mesh,Rhino.Geometry.MeshRefinements.RefinementSettings)">
             <summary>
@@ -16727,7 +16301,6 @@
             <param name="mesh">The mesh to subdivide.</param>
             <param name="settings">An instance of the settings class, or null for defaults.</param>
             <returns>A new mesh. null is never returned.</returns>
-            <exclude />
         </member>
         <member name="M:Rhino.Geometry.Mesh.ComputeAutoCreaseInformation">
             <summary>
@@ -16735,7 +16308,6 @@
             Length: top.Mesh.Vertices.Count
             </summary>
             <returns>An array that is bound to change.</returns>
-            <exclude />
         </member>
         <member name="M:Rhino.Geometry.Mesh.ExtendSelectionByEdgeRidge(System.Int32[],System.Int32,System.Boolean)">
             <summary>
@@ -20371,16 +19943,6 @@
             </param>
             <returns>new rebuilt surface on success. null on failure.</returns>
         </member>
-        <member name="M:Rhino.Geometry.Surface.RebuildOneDirection(System.Int32,System.Int32,Rhino.Geometry.LoftType,System.Double)">
-            <summary>
-            Rebuilds an existing surface with a new surface to a given point count in either the u or v directions independently.
-            </summary>
-            <param name="direction">The direction (0 = U, 1 = V).</param>
-            <param name="pointCount">The number of points in the output surface in the "direction" direction.</param>
-            <param name="loftType">The loft type</param>
-            <param name="refitTolerance">The refit tolerance. When in doubt, use the document's model absolute tolerance.</param>
-            <returns>new rebuilt surface on success. null on failure.</returns>
-        </member>
         <member name="M:Rhino.Geometry.Surface.ClosestPoint(Rhino.Geometry.Point3d,System.Double@,System.Double@)">
             <summary>
             Input the parameters of the point on the surface that is closest to testPoint.
@@ -20662,31 +20224,6 @@
             <summary>
             When geometrically possible and an opposite side exists, uses a percentage of respective neighbours to
             compute offsets.
-            </summary>
-        </member>
-        <member name="T:Rhino.Geometry.MeshRefinements.CreaseEdges">
-            <summary>
-            Defines the way naked edges are handled.
-            </summary>
-        </member>
-        <member name="F:Rhino.Geometry.MeshRefinements.CreaseEdges.NakedFixed">
-            <summary>
-            Naked edges will not move or be modified.
-            </summary>
-        </member>
-        <member name="F:Rhino.Geometry.MeshRefinements.CreaseEdges.NakedSmooth">
-            <summary>
-            The naked edge will tend toward a spline.
-            </summary>
-        </member>
-        <member name="F:Rhino.Geometry.MeshRefinements.CreaseEdges.CornerFixedOtherCreased">
-            <summary>
-            Corners (2-sided vertices) will be fixed, while other naked vertices will tend toward a spline.
-            </summary>
-        </member>
-        <member name="F:Rhino.Geometry.MeshRefinements.CreaseEdges.Auto">
-            <summary>
-            Unwelded vertices become creases, and welded are smooth.
             </summary>
         </member>
         <member name="T:Rhino.Geometry.MeshRefinements.RefinementSettings">
@@ -21683,11 +21220,8 @@
         </member>
         <member name="M:Rhino.Geometry.Circle.#ctor(Rhino.Geometry.Point3d,Rhino.Geometry.Point3d,Rhino.Geometry.Point3d)">
             <summary>
-            Initializes a circle through three 3d points. 
+            Initializes a circle through three 3d points. The start/end of the circle is at point1.
             </summary>
-            <param name="point1">The start/end of the circle is at point1.</param>
-            <param name="point2">Second point on the circle.</param>
-            <param name="point3">Third point on the circle.</param>
         </member>
         <member name="M:Rhino.Geometry.Circle.#ctor(Rhino.Geometry.Plane,Rhino.Geometry.Point3d,System.Double)">
             <summary>
@@ -30766,37 +30300,6 @@
             or a.X == b.X and a.Y == b.Y and a.Z &gt;= b.Z;
             otherwise, false.</returns>
         </member>
-        <member name="M:Rhino.Geometry.Vector3d.AreOrthogonal(Rhino.Geometry.Vector3d,Rhino.Geometry.Vector3d,Rhino.Geometry.Vector3d)">
-            <summary>
-            Test whether three vectors describe an orthogonal axis system.
-            All vectors must be mutually perpendicular this to be the case.
-            </summary>
-            <param name="x">X axis vector.</param>
-            <param name="y">Y axis vector.</param>
-            <param name="z">Z axis vector.</param>
-            <returns>True if all vectors are non-zero and mutually perpendicular.</returns>
-        </member>
-        <member name="M:Rhino.Geometry.Vector3d.AreOrthonormal(Rhino.Geometry.Vector3d,Rhino.Geometry.Vector3d,Rhino.Geometry.Vector3d)">
-            <summary>
-            Test whether three vectors describe an orthogonal, unit axis system.
-            All vectors must be mutually perpendicular and have unit length for this to be the case.
-            </summary>
-            <param name="x">X axis vector.</param>
-            <param name="y">Y axis vector.</param>
-            <param name="z">Z axis vector.</param>
-            <returns>True if all vectors are non-zero and mutually perpendicular.</returns>
-        </member>
-        <member name="M:Rhino.Geometry.Vector3d.AreRighthanded(Rhino.Geometry.Vector3d,Rhino.Geometry.Vector3d,Rhino.Geometry.Vector3d)">
-            <summary>
-            Test whether three vectors describe a right-handed, orthogonal, unit axis system.
-            The vectors must be orthonormal and follow the right-hand ordering; index-finger=x,
-            middle-finger=y, thumb=z.
-            </summary>
-            <param name="x">X axis vector.</param>
-            <param name="y">Y axis vector.</param>
-            <param name="z">Z axis vector.</param>
-            <returns>True if all vectors are non-zero and mutually perpendicular.</returns>
-        </member>
         <member name="P:Rhino.Geometry.Vector3d.X">
             <summary>
             Gets or sets the X (first) component of the vector.
@@ -34276,23 +33779,6 @@
             </summary>
             <param name="rhinoViewport">A viewport to copy.</param>
         </member>
-        <member name="M:Rhino.DocObjects.ViewportInfo.CalculateCameraRotationAngle(Rhino.Geometry.Vector3d,Rhino.Geometry.Vector3d)">
-            <summary>
-            Calculates the camera rotation angle.
-            </summary>
-            <param name="direction">The camera direction.</param>
-            <param name="up">The camera up direction.</param>
-            <returns>The camera rotation angle in radians.</returns>
-        </member>
-        <member name="M:Rhino.DocObjects.ViewportInfo.CalculateCameraUpDirection(Rhino.Geometry.Point3d,Rhino.Geometry.Vector3d,System.Double)">
-            <summary>
-            Calculates the camera up direction.
-            </summary>
-            <param name="location">The camera location.</param>
-            <param name="direction">The camera direction.</param>
-            <param name="angle">The camera rotation angle in radians.</param>
-            <returns>The camera up direction.</returns>
-        </member>
         <member name="P:Rhino.DocObjects.ViewportInfo.IsValidCamera">
             <summary>
             Gets a value that indicates whether the camera is valid.
@@ -37503,22 +36989,6 @@
             </param>
             <returns>true if successful.</returns>
         </member>
-        <member name="M:Rhino.DocObjects.Tables.ObjectTable.ReplaceInstanceObject(System.Guid,System.Int32)">
-            <summary>
-            Replaces the underlying instance definition of an instance object.
-            </summary>
-            <param name="objectId">Id of the instance object to be replaced.</param>
-            <param name="instanceDefinitionIndex">The index of the new instance definition to use.</param>
-            <returns>true if successful.</returns>
-        </member>
-        <member name="M:Rhino.DocObjects.Tables.ObjectTable.ReplaceInstanceObject(Rhino.DocObjects.ObjRef,System.Int32)">
-            <summary>
-            Replaces the underlying instance definition of an instance object.
-            </summary>
-            <param name="objref">Reference to the instance object to be replaced. The objref.Object() will be deleted.</param>
-            <param name="instanceDefinitionIndex">The index of the new instance definition to use.</param>
-            <returns>true if successful.</returns>
-        </member>
         <member name="M:Rhino.DocObjects.Tables.ObjectTable.MostRecentObject">
             <summary>
             Gets the most recently added object that is still in the Document.
@@ -38298,20 +37768,6 @@
             </param>
             <returns>
             True or False depending on whether the Append was successful.
-            </returns>
-        </member>
-        <member name="T:Rhino.DocObjects.Tables.SnapshotTable">
-            <summary>
-            All snapshots in a rhino document.
-            </summary>
-        </member>
-        <member name="P:Rhino.DocObjects.Tables.SnapshotTable.Document">
-            <summary>Document that owns this table.</summary>
-        </member>
-        <member name="P:Rhino.DocObjects.Tables.SnapshotTable.Names">
-            <summary>Array of Snapshot names.</summary>
-            <returns>
-            A string array with the names of all Snapshots in the document.
             </returns>
         </member>
         <member name="T:Rhino.DocObjects.Tables.FontTable">
@@ -40064,7 +39520,7 @@
             Name of an existing file. If filename is null or empty, default hatch pattern filename is used.
             </param>
             <param name="quiet">
-            Ignored.
+            If file doesn't exist, and quiet is false, an error meesage box is shown.
             </param>
             <returns>An array of hatch patterns. This can be null, but not empty.</returns>
         </member>
@@ -40080,15 +39536,6 @@
             Rhino allows multiple files to be viewed simultaneously. Hatch patterns in the
             document are "normal" or "reference". Reference hatch patterns are not saved.
             </summary>
-        </member>
-        <member name="M:Rhino.DocObjects.HatchPattern.CreatePreviewGeometry(System.Int32,System.Int32,System.Double)">
-            <summary>
-            Creates preview line segments of the hatch pattern.
-            </summary>
-            <param name="width">The width of the preview.</param>
-            <param name="height">The height of the preview.</param>
-            <param name="angle">The rotation angle of the pattern display in radians.</param>
-            <returns>The preview line segments if successful, an empty array on failure.</returns>
         </member>
         <member name="P:Rhino.DocObjects.HatchPattern.ComponentType">
             <summary>
@@ -40897,15 +40344,6 @@
             <param name="index">Zero based index of the segment to remove.</param>
             <returns>true if the segment index was removed.</returns>
         </member>
-        <member name="M:Rhino.DocObjects.Linetype.SetSegments(System.Collections.Generic.IEnumerable{System.Double})">
-            <summary>Set all segments.</summary>
-            <param name="segments">
-            An array of segments lengths. 
-            Lengths &gt;= 0 are interpreted as a line. 
-            Lengths &lt; 0 are interpreted as a space.
-            </param>
-            <returns>true if the segments were replaced</returns>
-        </member>
         <member name="M:Rhino.DocObjects.Linetype.SetSegment(System.Int32,System.Double,System.Boolean)">
             <summary>Sets the length and type of the segment at index.</summary>
             <param name="index">Zero based index of the segment.</param>
@@ -40927,13 +40365,6 @@
             <para>If the length is interpreted as a space, then false is assigned during the call to this out parameter.</para>
             </param>
             <exception cref="T:System.IndexOutOfRangeException">If the index is unacceptable.</exception>
-        </member>
-        <member name="M:Rhino.DocObjects.Linetype.ReadFromFile(System.String)">
-            <summary>
-            Reads linetypes from either a Rhino .3dm file or an AutoCAD .lin file.
-            </summary>
-            <param name="path">The path to the file to read.</param>
-            <returns>An array of linetypes if successful, otherwise an empty array.</returns>
         </member>
         <member name="P:Rhino.DocObjects.MaterialRef.MaterialSource">
             <summary>
@@ -41300,11 +40731,6 @@
             1f is 100% reflective.
             </summary>
         </member>
-        <member name="P:Rhino.DocObjects.Material.PreviewColor">
-            <summary>
-             Very simple preview color function for GUIs.
-            </summary>
-        </member>
         <member name="M:Rhino.DocObjects.Material.Default">
             <summary>
             Set material to default settings.
@@ -41534,13 +40960,6 @@
             Gets or sets an object optional text name.
             <para>More than one object in a model can have the same name and
             some objects may have no name.</para>
-            </summary>
-        </member>
-        <member name="P:Rhino.DocObjects.ObjectAttributes.Url">
-            <summary>
-            Objects may have an URL. There are no restrictions on what value this
-            URL may have. As an example, if the object came from a commercial part
-            library, the URL might point to the definition of that part.
             </summary>
         </member>
         <member name="P:Rhino.DocObjects.ObjectAttributes.LayerIndex">
@@ -41874,32 +41293,6 @@
             <param name="okToCreate">true if the method is allowed to instantiate new meshes if they do not exist.</param>
             <param name="returnAllObjects">true if all objects should be returned.</param>
             <returns>An array of object references.</returns>
-        </member>
-        <member name="M:Rhino.DocObjects.RhinoObject.GetFillSurfaces(Rhino.DocObjects.RhinoObject,Rhino.DocObjects.ClippingPlaneObject)">
-            <summary>
-            Return list of fill surfaces if any for object and clipping plane.
-            </summary>
-            <param name="rhinoObject">Object to clip</param>
-            <param name="clippingPlaneObject">Clipping plane to use</param>
-            <returns></returns>
-        </member>
-        <member name="M:Rhino.DocObjects.RhinoObject.GetFillSurfaces(Rhino.DocObjects.RhinoObject,System.Collections.Generic.IEnumerable{Rhino.DocObjects.ClippingPlaneObject})">
-            <summary>
-            Return list of fill surfaces if any for object and clipping plane. Fills are trimmed by
-            clipping planes that did not generate them.
-            </summary>
-            <param name="rhinoObject">Object to clip</param>
-            <param name="clippingPlaneObjects">Enumeration of clipping plane objects</param>
-            <returns>Array of Brep containing fully trimmed fills if there were any generated.</returns>
-        </member>
-        <member name="M:Rhino.DocObjects.RhinoObject.GetFillSurfaces(Rhino.DocObjects.RhinoObject,System.Collections.Generic.IEnumerable{Rhino.DocObjects.ClippingPlaneObject},System.Boolean)">
-            <summary>
-            Return list of fill surfaces if any for object and clipping plane.
-            </summary>
-            <param name="rhinoObject">Object to clip</param>
-            <param name="clippingPlaneObjects">Enumeration of clipping plane objects</param>
-            <param name="unclippedFills">Use true to get fills that are not trimmed by all clipping planes</param>
-            <returns>Array of Brep containing fills if there were any generated, trimmed if unclippedFills was false</returns>
         </member>
         <member name="P:Rhino.DocObjects.RhinoObject.ObjectType">
             <summary>
@@ -43807,25 +43200,6 @@
             <summary>
             Setting to enable/disable line wrapping with "\"s
             </summary>
-        </member>
-        <member name="P:Rhino.FileIO.FileObjWriteOptions.MergeNestedGroupingNames">
-             <summary>
-             Setting to merge nested layer or group names into a single OBJ group name
-             </summary>
-             <remarks>
-             Setting this to true will take a layer setup like this in Rhino
-             
-             Grandparent
-               Parent
-                 Child
-            
-             and make a group name of Grandparent__Parent__Child in obj.
-             
-             If false it will be 3 separate group names in obj and will look like this
-             in the file.
-             
-             g Grandparent Parent Child
-             </remarks>
         </member>
         <member name="P:Rhino.FileIO.FileObjWriteOptions.SortObjGroups">
             <summary>
@@ -46825,13 +46199,6 @@
             Model Properties: revision history, notes, preview image.
             </summary>
         </member>
-        <member name="P:Rhino.FileIO.FileWriteOptions.UpdateDocumentPath">
-            <summary>
-            If a complete, current version, 3dm file is successfully saved, then
-            the name of the file will be used to update the document's default file
-            path and title and document will be marked as not modified.
-            </summary>
-        </member>
         <member name="P:Rhino.FileIO.FileWriteOptions.WriteSelectedObjectsOnly">
             <summary>
             If true, this command should export only the objects currently selected in the Rhino model.
@@ -48340,115 +47707,11 @@
              Reserved, do not use.
             </summary>
         </member>
-        <member name="T:Rhino.UI.RhinoPlotWidthType">
+        <member name="T:Rhino.UI.Controls.GenericController">
             <summary>
-            Supported plot width special types
+            ViewModel wraps IRhinoUiController
             </summary>
-        </member>
-        <member name="F:Rhino.UI.RhinoPlotWidthType.ByLayer">
-            <summary>
-            Plot width from layer
-            </summary>
-        </member>
-        <member name="F:Rhino.UI.RhinoPlotWidthType.ByParent">
-            <summary>
-            Plot width from parent object
-            </summary>
-        </member>
-        <member name="F:Rhino.UI.RhinoPlotWidthType.Hairline">
-            <summary>
-            System hairline plot width
-            </summary>
-        </member>
-        <member name="F:Rhino.UI.RhinoPlotWidthType.Default">
-            <summary>
-            Use default plot width
-            </summary>
-        </member>
-        <member name="F:Rhino.UI.RhinoPlotWidthType.None">
-            <summary>
-            Don't print
-            </summary>
-        </member>
-        <member name="F:Rhino.UI.RhinoPlotWidthType.Varies">
-            <summary>
-            Multiple objects selected with different types/widths
-            </summary>
-        </member>
-        <member name="F:Rhino.UI.RhinoPlotWidthType.Width">
-            <summary>
-            Standard or custom width
-            </summary>
-        </member>
-        <member name="T:Rhino.UI.RhinoPlotWidthValue">
-            <summary>
-            Default width values used by UI objects to represent different states
-            </summary>
-        </member>
-        <member name="F:Rhino.UI.RhinoPlotWidthValue.Default">
-            <summary>
-            Use default plot width
-            </summary>
-        </member>
-        <member name="F:Rhino.UI.RhinoPlotWidthValue.None">
-            <summary>
-            Don't print
-            </summary>
-        </member>
-        <member name="F:Rhino.UI.RhinoPlotWidthValue.ByLayer">
-            <summary>
-            Plot width from layer
-            </summary>
-        </member>
-        <member name="F:Rhino.UI.RhinoPlotWidthValue.ByParent">
-            <summary>
-            Plot width from parent object
-            </summary>
-        </member>
-        <member name="F:Rhino.UI.RhinoPlotWidthValue.Varies">
-            <summary>
-            Multiple objects selected with different types/widths
-            </summary>
-        </member>
-        <member name="T:Rhino.UI.RhinoGetPlotWidthArgs">
-            <summary>
-            Argument flags passed to methods used to get Rhino plot width lists
-            </summary>
-        </member>
-        <member name="F:Rhino.UI.RhinoGetPlotWidthArgs.NoArgs">
-            <summary>
-            Just get the standard or default width list
-            </summary>
-        </member>
-        <member name="F:Rhino.UI.RhinoGetPlotWidthArgs.ByLayer">
-            <summary>
-            Include a By Layer option
-            </summary>
-        </member>
-        <member name="F:Rhino.UI.RhinoGetPlotWidthArgs.ByParent">
-            <summary>
-            Include a By Parent option
-            </summary>
-        </member>
-        <member name="F:Rhino.UI.RhinoGetPlotWidthArgs.HairLine">
-            <summary>
-            Include a hairline width option
-            </summary>
-        </member>
-        <member name="F:Rhino.UI.RhinoGetPlotWidthArgs.Default">
-            <summary>
-            Include a default width option
-            </summary>
-        </member>
-        <member name="F:Rhino.UI.RhinoGetPlotWidthArgs.None">
-            <summary>
-            Include a no print option
-            </summary>
-        </member>
-        <member name="F:Rhino.UI.RhinoGetPlotWidthArgs.All">
-            <summary>
-            Include everything
-            </summary>
+            
         </member>
         <member name="T:Rhino.UI.Controls.FactoryBase">
             <summary>
@@ -48567,20 +47830,11 @@
         <member name="T:Rhino.UI.Controls.Definitions.UserExecuteResult">
             This enum is for MenuTask Execute
         </member>
-        <member name="F:Rhino.UI.Controls.ThumbnailUI.IRhRdkContentThumbnailList_Sizes.Tiny">
-            <summary>Tiny thumbnails.</summary>
-        </member>
-        <member name="F:Rhino.UI.Controls.ThumbnailUI.IRhRdkContentThumbnailList_Sizes.Small">
-            <summary>Small thumbnails.</summary>
-        </member>
-        <member name="F:Rhino.UI.Controls.ThumbnailUI.IRhRdkContentThumbnailList_Sizes.Medium">
-            <summary>Medium thumbnails.</summary>
-        </member>
-        <member name="F:Rhino.UI.Controls.ThumbnailUI.IRhRdkContentThumbnailList_Sizes.Large">
-            <summary>Large thumbnails.</summary>
-        </member>
-        <member name="F:Rhino.UI.Controls.ThumbnailUI.IRhRdkContentThumbnailList_Sizes.Custom">
-            <summary>Custom-sized thumbnails.</summary>
+        <member name="T:Rhino.UI.Controls.InternalRdkViewModel">
+            <summary>
+            ViewModel wraps IRhinoUiController
+            </summary>
+            
         </member>
         <member name="P:Rhino.UI.Controls.ThumbnailUI.Thumbnail.CppPointer">
             <summary>
@@ -48602,6 +47856,21 @@
             Dispose for Thumbnail
             </summary>
         </member>
+        <member name="F:Rhino.UI.Controls.ThumbnailUI.IRhRdkContentThumbnailList_Sizes.Tiny">
+            <summary>Tiny thumbnails.</summary>
+        </member>
+        <member name="F:Rhino.UI.Controls.ThumbnailUI.IRhRdkContentThumbnailList_Sizes.Small">
+            <summary>Small thumbnails.</summary>
+        </member>
+        <member name="F:Rhino.UI.Controls.ThumbnailUI.IRhRdkContentThumbnailList_Sizes.Medium">
+            <summary>Medium thumbnails.</summary>
+        </member>
+        <member name="F:Rhino.UI.Controls.ThumbnailUI.IRhRdkContentThumbnailList_Sizes.Large">
+            <summary>Large thumbnails.</summary>
+        </member>
+        <member name="F:Rhino.UI.Controls.ThumbnailUI.IRhRdkContentThumbnailList_Sizes.Custom">
+            <summary>Custom-sized thumbnails.</summary>
+        </member>
         <member name="F:Rhino.UI.Controls.ThumbnailUI.IRhRdkThumbnailList_Modes.Grid">
             <summary>Big thumbnails like Explorer icon mode (default).</summary>
         </member>
@@ -48616,12 +47885,6 @@
         </member>
         <member name="F:Rhino.UI.Controls.ThumbnailUI.IRhRdkThumbnailList_Shapes.Wide">
             <summary>Wide thumbnails.</summary>
-        </member>
-        <member name="T:Rhino.UI.Controls.InternalRdkViewModel">
-            <summary>
-            ViewModel wraps IRhinoUiController
-            </summary>
-            
         </member>
         <member name="T:Rhino.UI.RhinoPageInterop">
             <summary>
@@ -48684,31 +47947,6 @@
             <summary>
             Static class which provides access to the Rhino panel system
             </summary>
-        </member>
-        <member name="M:Rhino.UI.PanelSystem.Register(System.Guid,System.Type,System.String,System.Drawing.Icon,Rhino.UI.PanelType)">
-            <summary>
-            Call once to register a panel type which will get dynamically created
-            and embedded in a Rhino docking/floating location.
-            </summary>
-            <param name="plugInId">
-            Plug-in restringing the panel
-            </param>
-            <param name="type">
-            Type of the control object to be displayed in the panel
-            </param>
-            <param name="caption">
-            Panel caption also used as a tool-tip.  On Windows the panel may be
-            displayed using the icon, caption or both.  On Mac the icon will be
-            used and the caption will be the tool-tip.
-            </param>
-            <param name="icon">
-            The panel icon.  On Windows the panel may be displayed using the icon,
-            caption or both.  On Mac the icon will be used and the caption will be
-            the tool-tip.
-            </param>
-            <param name="panelType">
-            See <see cref="T:Rhino.UI.PanelType"/>
-            </param>
         </member>
         <member name="M:Rhino.UI.PanelSystem.Register(Rhino.PlugIns.PlugIn,System.Type,System.String,System.Drawing.Icon,Rhino.UI.PanelType)">
             <summary>
@@ -48821,11 +48059,11 @@
             </param>
             <returns></returns>
         </member>
-        <member name="M:Rhino.UI.PanelSystem.Add(System.Guid,System.Type,System.String,System.Drawing.Icon,Rhino.UI.PanelType)">
+        <member name="M:Rhino.UI.PanelSystem.Add(Rhino.PlugIns.PlugIn,System.Type,System.String,System.Drawing.Icon,Rhino.UI.PanelType)">
             <summary>
             Add a class Type to the definition
             </summary>
-            <param name="plugInId"></param>
+            <param name="plugIn"></param>
             <param name="type"></param>
             <param name="caption"></param>
             <param name="icon"></param>
@@ -48847,11 +48085,11 @@
             Panel definition created when a panel is registered.
             </summary>
         </member>
-        <member name="M:Rhino.UI.PanelDefinition.#ctor(System.Guid,System.Type,System.String,System.String,System.Drawing.Icon,Rhino.UI.PanelType)">
+        <member name="M:Rhino.UI.PanelDefinition.#ctor(Rhino.PlugIns.PlugIn,System.Type,System.String,System.String,System.Drawing.Icon,Rhino.UI.PanelType)">
             <summary>
             Constructor
             </summary>
-            <param name="plugInId"></param>
+            <param name="plugIn"></param>
             <param name="type"></param>
             <param name="englishCaption"></param>
             <param name="localCaption"></param>
@@ -50039,33 +49277,11 @@
             <typeparam name="T"></typeparam>
             <returns></returns>
         </member>
-        <member name="M:Rhino.UI.ObjectPropertiesPageEventArgs.IncludesObjectsType``1(System.Boolean)">
-            <summary>
-            Return true if any of the selected objects match the given type
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="allMustMatch">
-            If true then every selected object must match the object type
-            otherwise; only a single object has to be of the specified type
-            </param>
-            <returns></returns>
-        </member>
         <member name="M:Rhino.UI.ObjectPropertiesPageEventArgs.IncludesObjectsType(Rhino.DocObjects.ObjectType)">
             <summary>
             
             </summary>
             <param name="objectTypes"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Rhino.UI.ObjectPropertiesPageEventArgs.IncludesObjectsType(Rhino.DocObjects.ObjectType,System.Boolean)">
-            <summary>
-            
-            </summary>
-            <param name="objectTypes"></param>
-            <param name="allMustMatch">
-            If true then every selected object must match the object type
-            otherwise; only a single object has to be of the specified type
-            </param>
             <returns></returns>
         </member>
         <member name="M:Rhino.UI.ObjectPropertiesPageEventArgs.GetObjects``1">
@@ -50152,15 +49368,6 @@
         <member name="P:Rhino.UI.ObjectPropertiesPage.SupportedTypes">
             <summary>
             Override to specify which objects this page supports
-            </summary>
-        </member>
-        <member name="P:Rhino.UI.ObjectPropertiesPage.AllObjectsMustBeSupported">
-            <summary>
-            Returns true when running on Mac which requires only objects of 
-            SupportedTypes.  Returns false when running on Windows which only
-            requires a single item of SupportedTypes to be selected.
-            
-            Override if you wish to change the above behavior.
             </summary>
         </member>
         <member name="M:Rhino.UI.ObjectPropertiesPage.OnCreateParent(System.IntPtr)">
@@ -50295,17 +49502,6 @@
             Return true if any of the selected objects match the given type
             </summary>
             <typeparam name="T"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Rhino.UI.ObjectPropertiesPage.AnySelectedObject``1(System.Boolean)">
-            <summary>
-            Return true if any of the selected objects match the given type
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="allMustMatch">
-            If true then every selected object must match the object type
-            otherwise; only a single object has to be of the specified type
-            </param>
             <returns></returns>
         </member>
         <member name="M:Rhino.UI.ObjectPropertiesPage.GetSelectedObjects``1">
@@ -51021,14 +50217,6 @@
             </param>
             <returns></returns>
         </member>
-        <member name="P:Rhino.UI.RhinoHelp.ShowHelpCalled">
-            <summary>
-            Total hack to work around the fact that options and object properties
-            pages OnHelp virtual methods return void instead of bool.  This will
-            get set to the result of the last Show call above.
-            </summary>
-            <value><c>true</c> if show help called; otherwise, <c>false</c>.</value>
-        </member>
         <member name="T:Rhino.UI.LOC">
             <summary>
             Used a placeholded which is used by LocalizationProcessor application to create contextId
@@ -51090,7 +50278,7 @@
              through the source code of a project and looks for LOC.COV. The function is then replaced with a
              call to Localization.LocalizeCommandOptionValue using a unique context ID.
             </summary>
-            <param name='english'>[in] The English string to localize.</param>
+            <param name='engilsh'>[in] The English string to localize.</param>
              <returns>Returns localized string pair with both the English and local names set to the English value.</returns>
         </member>
         <member name="M:Rhino.UI.LOC.COV(System.String,System.Object)">
@@ -51100,7 +50288,7 @@
              through the source code of a project and looks for LOC.COV. The function is then replaced with a
              call to Localization.LocalizeCommandOptionValue using a unique context ID.
             </summary>
-            <param name='english'>[in] The English string to localize.</param>
+            <param name='engilsh'>[in] The English string to localize.</param>
             <param name='assemblyFromObject'>[in] The object that identifies the assembly that owns the command option value.</param>
              <returns>Returns localized string pair with both the English and local names set to the English value.</returns>
         </member>
@@ -51187,15 +50375,6 @@
         </member>
         <member name="T:Rhino.UI.LocalizeStringPair">
             <summary>Pair of strings used for localization.</summary>
-        </member>
-        <member name="M:Rhino.UI.Dialogs.ShowContextMenu(System.Collections.Generic.IEnumerable{System.String},System.Drawing.Point,System.Collections.Generic.IEnumerable{System.Int32})">
-            <summary>
-            Creates an ETO ContextMenu from an array of strings. Use the modes array to enable/disable menu items
-            </summary>
-            <param name="items"></param>
-            <param name="screenPoint"></param>
-            <param name="modes"></param>
-            <returns></returns>
         </member>
         <member name="M:Rhino.UI.Dialogs.SetCustomColorDialog(System.EventHandler{Rhino.UI.GetColorEventArgs})">
             <example>
@@ -51401,15 +50580,6 @@
             <para>selected item.</para>
             <para>null if the user canceled.</para>
             </returns>
-        </member>
-        <member name="M:Rhino.UI.Dialogs.ShowLineTypes(System.String,System.String,Rhino.RhinoDoc)">
-            <summary>
-            Displayes Rhino's Linetype list and returns the ID of the selected line type as a string.
-            </summary>
-            <param name="title"></param>
-            <param name="message"></param>
-            <param name="doc"></param>
-            <returns></returns>
         </member>
         <member name="M:Rhino.UI.Dialogs.ShowCheckListBox(System.String,System.String,System.Collections.IList,System.Collections.Generic.IList{System.Boolean})">
             <summary>
@@ -55159,34 +54329,12 @@
             <code source='examples\py\ex_advanceddisplay.py' lang='py'/>
             </example>
         </member>
-        <member name="M:Rhino.Display.DisplayModeDescription.AddDisplayMode(System.String)">
-            <summary>
-            Adds a new display mode.
-            </summary>
-            <param name="name">The name of the new display mode.</param>
-            <returns>The id of the new display mode if successful. Guid.Empty on error.</returns>
-        </member>
-        <member name="M:Rhino.Display.DisplayModeDescription.CopyDisplayMode(System.Guid,System.String)">
-            <summary>
-            Copies an existing display mode.
-            </summary>
-            <param name="id">The id of the existing display mode to copy.</param>
-            <param name="name">The name of the new display mode.</param>
-            <returns>The id of the new display mode if successful. Guid.Empty on error.</returns>
-        </member>
         <member name="M:Rhino.Display.DisplayModeDescription.UpdateDisplayMode(Rhino.Display.DisplayModeDescription)">
             <example>
             <code source='examples\vbnet\ex_advanceddisplay.vb' lang='vbnet'/>
             <code source='examples\cs\ex_advanceddisplay.cs' lang='cs'/>
             <code source='examples\py\ex_advanceddisplay.py' lang='py'/>
             </example>
-        </member>
-        <member name="M:Rhino.Display.DisplayModeDescription.DeleteDiplayMode(System.Guid)">
-            <summary>
-            Deletes an existing display mode.
-            </summary>
-            <param name="id">The id of the existing display mode to delete.</param>
-            <returns>true if successful, false oteherwise.</returns>
         </member>
         <member name="M:Rhino.Display.DisplayModeDescription.ImportFromFile(System.String)">
             <summary>
@@ -55722,17 +54870,6 @@
             <param name="width">Width of target image.</param>
             <param name="height">Height of target image.</param>
             <returns>A bitmap containing the given view, or null on error.</returns>
-        </member>
-        <member name="M:Rhino.Display.DisplayPipeline.DrawStereoFrameBuffer(Rhino.DocObjects.ViewportInfo,Rhino.DocObjects.ViewportInfo,System.UInt32@,System.UInt32@)">
-            <summary>
-            Draws the viewport as seen from the left and the right eye viewports
-            and returns the result as OpenGL texture handles.
-            </summary>
-            <param name="viewportLeft">The viewport representing the left eye location and look direction.</param>
-            <param name="viewportRight">The viewport representing the right eye location and look direction.</param>
-            <param name="handleLeft">Will contain the OpenGL texture handle which references the left output color buffer.</param>
-            <param name="handleRight">Will contain the OpenGL texture handle which references the right output color buffer.</param>
-            <returns>true if drawing succedded, false otherwise.</returns>
         </member>
         <member name="M:Rhino.Display.DisplayPipeline.DrawMeshWires(Rhino.Geometry.Mesh,System.Drawing.Color)">
             <summary>
@@ -58643,7 +57780,7 @@
         </member>
         <member name="M:Rhino.Render.TextureMapping.TryGetMappingBox(Rhino.Geometry.Plane@,Rhino.Geometry.Interval@,Rhino.Geometry.Interval@,Rhino.Geometry.Interval@)">
             <summary>
-            Get a box projection from the texture mapping.
+            	Get a box projection from the texture mapping.
             </summary>
             <param name="plane">
             The center of the box is at plane.origin and the sides of the box are
@@ -58666,42 +57803,6 @@
             plane.xaxis and plane.yaxis.  The bottom plane contains the point
             plane.PointAt(0,0,dz[0]) and the top plane contains the point
             plane.PointAt(0,0,dz[1]).
-            </param>
-            <returns>
-            Returns true if a valid box is returned.
-            </returns>
-            <remarks>
-            Generally, GetMappingBox will not return the same parameters passed to
-            SetBoxMapping.  However, the location of the box will be the same.
-            </remarks>
-        </member>
-        <member name="M:Rhino.Render.TextureMapping.TryGetMappingBox(Rhino.Geometry.Plane@,Rhino.Geometry.Interval@,Rhino.Geometry.Interval@,Rhino.Geometry.Interval@,System.Boolean@)">
-            <summary>
-            Get a box projection from the texture mapping, including capped information
-            </summary>
-            <param name="plane">
-            The center of the box is at plane.origin and the sides of the box are
-            parallel to the plane's coordinate planes.
-            </param>
-            <param name="dx">
-            The "front" and "back" sides of the box are in spanned by the vectors
-            plane.yaxis and plane.zaxis.  The back plane contains the point
-            plane.PointAt(dx[0],0,0) and the front plane contains the point
-            plane.PointAt(dx[1],0,0).
-            </param>
-            <param name="dy">
-            The "left" and "right" sides of the box are in spanned by the vectors
-            plane.zaxis and plane.xaxis.  The left plane contains the point
-            plane.PointAt(0,dx[0],0) and the back plane contains the point
-            plane.PointAt(0,dy[1],0).
-            </param>
-            <param name="dz">
-            The "top" and "bottom" sides of the box are in spanned by the vectors
-            plane.xaxis and plane.yaxis.  The bottom plane contains the point
-            plane.PointAt(0,0,dz[0]) and the top plane contains the point
-            plane.PointAt(0,0,dz[1]).
-            </param>
-            <param name="capped">true if box mapping is capped.
             </param>
             <returns>
             Returns true if a valid box is returned.
@@ -58741,22 +57842,6 @@
             approximate the actual mapping primitive.
             </remarks>
         </member>
-        <member name="M:Rhino.Render.TextureMapping.TryGetMappingCylinder(Rhino.Geometry.Cylinder@,System.Boolean@)">
-            <summary>
-            Get a cylindrical projection parameters from this texture mapping.
-            </summary>
-            <param name="cylinder"></param>
-            <param name="capped">will be true if capped</param>
-            <returns>
-            Returns true if a valid cylinder is returned.
-            </returns>
-            <remarks>
-            Generally, GetMappingCylinder will not return the same parameters passed
-            to SetCylinderMapping.  However, the location of the cylinder will be
-            the same.  If this mapping is not cylindrical, the cylinder will
-            approximate the actual mapping primitive.
-            </remarks>
-        </member>
         <member name="M:Rhino.Render.TextureMapping.TryGetMappingPlane(Rhino.Geometry.Plane@,Rhino.Geometry.Interval@,Rhino.Geometry.Interval@,Rhino.Geometry.Interval@)">
             <summary>
             Get plane mapping parameters from this texture mapping.
@@ -58781,48 +57866,12 @@
              same.
             </remarks>
         </member>
-        <member name="M:Rhino.Render.TextureMapping.TryGetMappingPlane(Rhino.Geometry.Plane@,Rhino.Geometry.Interval@,Rhino.Geometry.Interval@,Rhino.Geometry.Interval@,System.Boolean@)">
-            <summary>
-            Get plane mapping parameters from this texture mapping, including capping information
-            </summary>
-            <param name="plane"></param>
-            <param name="dx">
-            Portion of the plane's x axis that is mapped to [0,1]
-            </param>
-            <param name="dy">
-            Portion of the plane's y axis that is mapped to [0,1]
-            </param>
-            <param name="dz">
-            Portion of the plane's z axis that is mapped to [0,1]
-            </param>
-            <param name="capped">
-            </param>
-            
-            <returns>
-            Return true if valid plane mapping parameters were returned.
-            </returns>
-            <remarks>
-            NOTE WELL:
-             Generally, GetMappingPlane will not return the same parameters passed
-             to SetPlaneMapping.  However, the location of the plane will be the
-             same.
-            </remarks>
-        </member>
         <member name="M:Rhino.Render.TextureMapping.CreatePlaneMapping(Rhino.Geometry.Plane,Rhino.Geometry.Interval,Rhino.Geometry.Interval,Rhino.Geometry.Interval)">
-            <summary>Create a planar UV projection texture mapping</summary>
-            <param name="plane">A plane to use for mapping.</param>
-            <param name="dx">portion of the plane's x axis that is mapped to [0,1] (can be a decreasing interval)</param>
-            <param name="dy">portion of the plane's y axis that is mapped to [0,1] (can be a decreasing interval)</param>
-            <param name="dz">portion of the plane's z axis that is mapped to [0,1] (can be a decreasing interval)</param>
-            <returns>TextureMapping instance if input is valid</returns>
-        </member>
-        <member name="M:Rhino.Render.TextureMapping.CreatePlaneMapping(Rhino.Geometry.Plane,Rhino.Geometry.Interval,Rhino.Geometry.Interval,Rhino.Geometry.Interval,System.Boolean)">
             <summary>Create a planar projection texture mapping</summary>
             <param name="plane">A plane to use for mapping.</param>
             <param name="dx">portion of the plane's x axis that is mapped to [0,1] (can be a decreasing interval)</param>
             <param name="dy">portion of the plane's y axis that is mapped to [0,1] (can be a decreasing interval)</param>
             <param name="dz">portion of the plane's z axis that is mapped to [0,1] (can be a decreasing interval)</param>
-            <param name="capped">set to true if planar UVW is meant, false for planar UV</param>
             <returns>TextureMapping instance if input is valid</returns>
         </member>
         <member name="M:Rhino.Render.TextureMapping.CreateCylinderMapping(Rhino.Geometry.Cylinder,System.Boolean)">
@@ -58900,6 +57949,274 @@
             0/6 &lt;=u&lt;= 1/6 &lt;=u&lt;= 2/6 &lt;=u&lt;= 3/6 &lt;=u&lt;= 4/6 &lt;=u&lt;= 5/6 &lt;=u&lt;= 6/6 
             </remarks>
             <returns>TextureMapping instance if input is valid</returns>
+        </member>
+        <member name="T:Rhino.Render.UI.ContentUIAgentBase">
+            <summary>
+            This is the abstract interface class for for all Snapshot clients.
+            </summary>
+        </member>
+        <member name="M:Rhino.Render.UI.ContentUIAgentBase.#ctor">
+            <summary>
+            SnapShotsClient constructor
+            </summary>
+        </member>
+        <member name="M:Rhino.Render.UI.ContentUIAgentBase.Dispose">
+            <summary>
+            SnapShotsClient Dispose
+            </summary>
+        </member>
+        <member name="T:Rhino.Render.UI.IUserInterfaceSection">
+            <summary>
+            Implement this interface in your user control to get UserInterfaceSection
+            event notification.
+            </summary>
+        </member>
+        <member name="M:Rhino.Render.UI.IUserInterfaceSection.UserInterfaceDisplayData(Rhino.Render.UI.UserInterfaceSection,Rhino.Render.RenderContent[])">
+            <summary>
+            Called by UserInterfaceSection when the selected content changes or a
+            content field property value changes.
+            </summary>
+            <param name="userInterfaceSection">
+            The UserInterfaceSection object that called this interface method.
+            </param>
+            <param name="renderContentList">
+            The currently selected list of content items to edit.
+            </param>
+        </member>
+        <member name="M:Rhino.Render.UI.IUserInterfaceSection.OnUserInterfaceSectionExpanding(Rhino.Render.UI.UserInterfaceSection,System.Boolean)">
+            <summary>
+            The UserInterfaceSection object that called this interface method.
+            </summary>
+            <param name="userInterfaceSection">
+            The UserInterfaceSection object that called this interface method.
+            </param>
+            <param name="expanding">
+            Will be true if the control has been createExpanded or false if it was
+            collapsed.
+            </param>
+        </member>
+        <member name="P:Rhino.Render.UI.IUserInterfaceSection.Hidden">
+            <summary>
+            Return true if the section should be hidden, else return false.
+            </summary>
+            <remarks>
+            This is not to be confused with IsShown(). Hidden tells the holder
+            whether or not to hide the section. IsShown reports the current
+            physical state of the control.
+            </remarks>
+            <remarks>
+            This method is called continuously by the holder and should be
+            implemented to be as fast as possible.  It is recommended that the
+            state be calculated and cached in <see cref="M:Rhino.Render.UI.IUserInterfaceSection.UserInterfaceDisplayData(Rhino.Render.UI.UserInterfaceSection,Rhino.Render.RenderContent[])"/>
+            and the cached value returned here.
+            </remarks>
+        </member>
+        <member name="T:Rhino.Render.UI.UserInterfaceSection">
+            <summary>
+            Custom user interface section manager
+            </summary>
+        </member>
+        <member name="M:Rhino.Render.UI.UserInterfaceSection.#ctor(System.Int32,System.Object)">
+            <summary>
+            Internal constructor
+            </summary>
+            <param name="serialNumber">C++ pointer serial number returned by the C interface wrapper.</param>
+            <param name="window">The control created and embedded in the expandable tab control in the content browser.</param>
+        </member>
+        <member name="P:Rhino.Render.UI.UserInterfaceSection.SerialNumber">
+            <summary>
+            C++ pointer serial number returned by the C interface wrapper.
+            </summary>
+        </member>
+        <member name="F:Rhino.Render.UI.UserInterfaceSection.m_window">
+            <summary>
+            The control created and embedded in the expandable tab control in the content browser.
+            </summary>
+        </member>
+        <member name="F:Rhino.Render.UI.UserInterfaceSection.m_serial_number">
+            <summary>
+            C++ pointer serial number returned by the C interface wrapper.
+            </summary>
+        </member>
+        <member name="F:Rhino.Render.UI.UserInterfaceSection.m_search_hint">
+            <summary>
+            Search hint helper
+            </summary>
+        </member>
+        <member name="F:Rhino.Render.UI.UserInterfaceSection.g_user_interface_section_dictionary">
+            <summary>
+            UserInterfaceSection instance dictionary, the constructor adds objects to the dictionary
+            and the C++ destructor callback removes them when they get destroyed.
+            </summary>
+        </member>
+        <member name="M:Rhino.Render.UI.UserInterfaceSection.SetHooks">
+            <summary>
+            Set C++ callback function pointers
+            </summary>
+        </member>
+        <member name="T:Rhino.Render.UI.UserInterfaceSection.SerialNumberCallback">
+            <summary>
+            Delegate used by Imports.cs for internal C++ method callbacks
+            </summary>
+            <param name="serialNumber">Runtime C++ memory pointer serial number.</param>
+        </member>
+        <member name="T:Rhino.Render.UI.UserInterfaceSection.SerialNumberBoolCallback">
+            <summary>
+            Delegate used by Imports.cs for internal C++ method callbacks
+            </summary>
+            <param name="serialNumber">Runtime C++ memory pointer serial number.</param>
+            <param name="b"></param>
+        </member>
+        <member name="F:Rhino.Render.UI.UserInterfaceSection.g_delete_this_proc">
+            <summary>
+            Called by the C++ destructor when a user interface section object is destroyed.
+            </summary>
+        </member>
+        <member name="F:Rhino.Render.UI.UserInterfaceSection.g_display_data_proc">
+            <summary>
+            Called by the C++ SDK when it is time to initialize a user interface section.
+            </summary>
+        </member>
+        <member name="F:Rhino.Render.UI.UserInterfaceSection.g_on_expand_callback">
+            <summary>
+            Called by the C++ SDK when a user interface section is being createExpanded
+            or collapsed.
+            </summary>
+        </member>
+        <member name="F:Rhino.Render.UI.UserInterfaceSection.g_is_hidden_callback">
+            <summary>
+            Called by the C++ SDK to determine if a user interface section should be hidden
+            </summary>
+        </member>
+        <member name="M:Rhino.Render.UI.UserInterfaceSection.DeleteThisProc(System.Int32)">
+            <summary>
+            C++ user interface destructor callback, remove the object from the runtime
+            dictionary and dispose if it if possible.
+            </summary>
+            <param name="serialNumber"></param>
+        </member>
+        <member name="M:Rhino.Render.UI.UserInterfaceSection.DisplayDataProc(System.Int32)">
+            <summary>
+            Called when it is safe to initialize the control window.
+            </summary>
+            <param name="serialNumber"></param>
+        </member>
+        <member name="M:Rhino.Render.UI.UserInterfaceSection.OnExpandProc(System.Int32,System.Boolean)">
+            <summary>
+            Called when a user interface section is being createExpanded or collapsed.
+            </summary>
+            <param name="serialNumber"></param>
+            <param name="expanding"></param>
+        </member>
+        <member name="M:Rhino.Render.UI.UserInterfaceSection.IsHiddenProc(System.Int32)">
+            <summary>
+            Called when it is safe to initialize the control window.
+            </summary>
+            <param name="serialNumber"></param>
+        </member>
+        <member name="P:Rhino.Render.UI.UserInterfaceSection.RenderContent">
+            <summary>
+            The RenderContent object that created this user interface object.
+            </summary>
+        </member>
+        <member name="P:Rhino.Render.UI.UserInterfaceSection.Window">
+            <summary>
+            The user control associated with this user interface object.
+            </summary>
+        </member>
+        <member name="M:Rhino.Render.UI.UserInterfaceSection.FromWindow(System.Object)">
+            <summary>
+            Find the UserInterfaceSection that created the specified instance of a
+            window.
+            </summary>
+            <param name="window">
+            If window is not null then look for the UserInterfaceSection that
+            created the window.
+            </param>
+            <returns>
+            If a UserInterfaceSection object is found containing a reference to
+            the requested window then return the object otherwise return null.
+            </returns>
+        </member>
+        <member name="M:Rhino.Render.UI.UserInterfaceSection.GetContentList">
+            <summary>
+            Returns a list of currently selected content items to be edited.
+            </summary>
+            <returns>Returns a list of currently selected content items to be edited.</returns>
+        </member>
+        <member name="M:Rhino.Render.UI.UserInterfaceSection.Show(System.Boolean)">
+            <summary>
+            Show or hide this content section.
+            </summary>
+            <param name="visible">If true then show the content section otherwise hide it.</param>
+        </member>
+        <member name="M:Rhino.Render.UI.UserInterfaceSection.Expand(System.Boolean)">
+            <summary>
+            Expand or collapse this content section.
+            </summary>
+            <param name="expand">If true then expand the content section otherwise collapse it.</param>
+        </member>
+        <member name="P:Rhino.Render.UI.UserInterfaceSection.Pointer">
+            <summary>
+            Dereference the serial number as a C++ pointer, used for direct access to the C++ object.
+            </summary>
+        </member>
+        <member name="M:Rhino.Render.UI.UserInterfaceSection.GetContentIdList">
+            <summary>
+            Returns a list of currently selected content item Id's to be edited.
+            </summary>
+            <returns>Returns a list of currently selected content item Id's to be edited.</returns>
+        </member>
+        <member name="M:Rhino.Render.UI.UserInterfaceSection.FromSerialNumber(System.Int32)">
+            <summary>
+            Look up a runtime instance of an user interface object by serial number.
+            </summary>
+            <param name="serialNumber"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Rhino.Render.UI.UserInterfaceSection.UiFromSerialNumber(System.Int32,Rhino.Render.UI.UserInterfaceSection@,Rhino.Render.UI.IUserInterfaceSection@)">
+            <summary>
+            Look up a runtime instance of an user interface object by serial number
+            and check the user interface Window object for a IUserInterfaceSection
+            instance.
+            </summary>
+            <param name="serialNumber"></param>
+            <param name="uiSection"></param>
+            <param name="iUiSection"></param>
+            <returns>
+            Returns true if both uiSection and iUiSection are non null otherwise;
+            return false.
+            </returns>
+        </member>
+        <member name="T:Rhino.Render.UI.FloatingPreviewManagerBase">
+            <summary>
+            This is the abstract interface class for for all Floating Preview Managers.
+            </summary>
+        </member>
+        <member name="M:Rhino.Render.UI.FloatingPreviewManagerBase.#ctor">
+            <summary>
+            SnapShotsClient constructor
+            </summary>
+        </member>
+        <member name="M:Rhino.Render.UI.FloatingPreviewManagerBase.Dispose">
+            <summary>
+            SnapShotsClient Dispose
+            </summary>
+        </member>
+        <member name="T:Rhino.Render.UI.UiDynamicAccessBase">
+            <summary>
+            This is the abstract interface class for the rdk UI Dynamic Access for C#.
+            </summary>
+        </member>
+        <member name="M:Rhino.Render.UI.UiDynamicAccessBase.#ctor">
+            <summary>
+            SnapShotsClient constructor
+            </summary>
+        </member>
+        <member name="M:Rhino.Render.UI.UiDynamicAccessBase.Dispose">
+            <summary>
+            SnapShotsClient Dispose
+            </summary>
         </member>
         <member name="T:Rhino.Render.DataSources.ContentUIArray">
             <summary>
@@ -59322,16 +58639,6 @@
             <summary>
             Get object attributes of object associated to this mesh. This will be possible only 
             after returning true from ChangeQueue.ProvideOriginalObject()
-            </summary>
-        </member>
-        <member name="P:Rhino.Render.ChangeQueue.Mesh.Object">
-            <summary>
-            Get a copy of the original RhinoObject this Mesh is created from. Possible only after
-            return true from ChangeQueue.ProvideOriginalObject().
-            
-            Access this only with a using(var o = mesh.Object) {} construct.
-            
-            Note that the object is free floating, i.e. not part of a document.
             </summary>
         </member>
         <member name="T:Rhino.Render.ChangeQueue.MeshInstance">
@@ -60047,229 +59354,6 @@
             Texture offset locked.
             </summary>
         </member>
-        <member name="T:Rhino.Render.UI.IUserInterfaceSection">
-            <summary>
-            Implement this interface in your user control to get UserInterfaceSection
-            event notification.
-            </summary>
-        </member>
-        <member name="M:Rhino.Render.UI.IUserInterfaceSection.UserInterfaceDisplayData(Rhino.Render.UI.UserInterfaceSection,Rhino.Render.RenderContent[])">
-            <summary>
-            Called by UserInterfaceSection when the selected content changes or a
-            content field property value changes.
-            </summary>
-            <param name="userInterfaceSection">
-            The UserInterfaceSection object that called this interface method.
-            </param>
-            <param name="renderContentList">
-            The currently selected list of content items to edit.
-            </param>
-        </member>
-        <member name="M:Rhino.Render.UI.IUserInterfaceSection.OnUserInterfaceSectionExpanding(Rhino.Render.UI.UserInterfaceSection,System.Boolean)">
-            <summary>
-            The UserInterfaceSection object that called this interface method.
-            </summary>
-            <param name="userInterfaceSection">
-            The UserInterfaceSection object that called this interface method.
-            </param>
-            <param name="expanding">
-            Will be true if the control has been createExpanded or false if it was
-            collapsed.
-            </param>
-        </member>
-        <member name="P:Rhino.Render.UI.IUserInterfaceSection.Hidden">
-            <summary>
-            Return true if the section should be hidden, else return false.
-            </summary>
-            <remarks>
-            This is not to be confused with IsShown(). Hidden tells the holder
-            whether or not to hide the section. IsShown reports the current
-            physical state of the control.
-            </remarks>
-            <remarks>
-            This method is called continuously by the holder and should be
-            implemented to be as fast as possible.  It is recommended that the
-            state be calculated and cached in <see cref="M:Rhino.Render.UI.IUserInterfaceSection.UserInterfaceDisplayData(Rhino.Render.UI.UserInterfaceSection,Rhino.Render.RenderContent[])"/>
-            and the cached value returned here.
-            </remarks>
-        </member>
-        <member name="T:Rhino.Render.UI.UserInterfaceSection">
-            <summary>
-            Custom user interface section manager
-            </summary>
-        </member>
-        <member name="M:Rhino.Render.UI.UserInterfaceSection.#ctor(System.Int32,System.Object)">
-            <summary>
-            Internal constructor
-            </summary>
-            <param name="serialNumber">C++ pointer serial number returned by the C interface wrapper.</param>
-            <param name="window">The control created and embedded in the expandable tab control in the content browser.</param>
-        </member>
-        <member name="P:Rhino.Render.UI.UserInterfaceSection.SerialNumber">
-            <summary>
-            C++ pointer serial number returned by the C interface wrapper.
-            </summary>
-        </member>
-        <member name="F:Rhino.Render.UI.UserInterfaceSection.m_window">
-            <summary>
-            The control created and embedded in the expandable tab control in the content browser.
-            </summary>
-        </member>
-        <member name="F:Rhino.Render.UI.UserInterfaceSection.m_serial_number">
-            <summary>
-            C++ pointer serial number returned by the C interface wrapper.
-            </summary>
-        </member>
-        <member name="F:Rhino.Render.UI.UserInterfaceSection.m_search_hint">
-            <summary>
-            Search hint helper
-            </summary>
-        </member>
-        <member name="F:Rhino.Render.UI.UserInterfaceSection.g_user_interface_section_dictionary">
-            <summary>
-            UserInterfaceSection instance dictionary, the constructor adds objects to the dictionary
-            and the C++ destructor callback removes them when they get destroyed.
-            </summary>
-        </member>
-        <member name="M:Rhino.Render.UI.UserInterfaceSection.SetHooks">
-            <summary>
-            Set C++ callback function pointers
-            </summary>
-        </member>
-        <member name="T:Rhino.Render.UI.UserInterfaceSection.SerialNumberCallback">
-            <summary>
-            Delegate used by Imports.cs for internal C++ method callbacks
-            </summary>
-            <param name="serialNumber">Runtime C++ memory pointer serial number.</param>
-        </member>
-        <member name="T:Rhino.Render.UI.UserInterfaceSection.SerialNumberBoolCallback">
-            <summary>
-            Delegate used by Imports.cs for internal C++ method callbacks
-            </summary>
-            <param name="serialNumber">Runtime C++ memory pointer serial number.</param>
-            <param name="b"></param>
-        </member>
-        <member name="F:Rhino.Render.UI.UserInterfaceSection.g_delete_this_proc">
-            <summary>
-            Called by the C++ destructor when a user interface section object is destroyed.
-            </summary>
-        </member>
-        <member name="F:Rhino.Render.UI.UserInterfaceSection.g_display_data_proc">
-            <summary>
-            Called by the C++ SDK when it is time to initialize a user interface section.
-            </summary>
-        </member>
-        <member name="F:Rhino.Render.UI.UserInterfaceSection.g_on_expand_callback">
-            <summary>
-            Called by the C++ SDK when a user interface section is being createExpanded
-            or collapsed.
-            </summary>
-        </member>
-        <member name="F:Rhino.Render.UI.UserInterfaceSection.g_is_hidden_callback">
-            <summary>
-            Called by the C++ SDK to determine if a user interface section should be hidden
-            </summary>
-        </member>
-        <member name="M:Rhino.Render.UI.UserInterfaceSection.DeleteThisProc(System.Int32)">
-            <summary>
-            C++ user interface destructor callback, remove the object from the runtime
-            dictionary and dispose if it if possible.
-            </summary>
-            <param name="serialNumber"></param>
-        </member>
-        <member name="M:Rhino.Render.UI.UserInterfaceSection.DisplayDataProc(System.Int32)">
-            <summary>
-            Called when it is safe to initialize the control window.
-            </summary>
-            <param name="serialNumber"></param>
-        </member>
-        <member name="M:Rhino.Render.UI.UserInterfaceSection.OnExpandProc(System.Int32,System.Boolean)">
-            <summary>
-            Called when a user interface section is being createExpanded or collapsed.
-            </summary>
-            <param name="serialNumber"></param>
-            <param name="expanding"></param>
-        </member>
-        <member name="M:Rhino.Render.UI.UserInterfaceSection.IsHiddenProc(System.Int32)">
-            <summary>
-            Called when it is safe to initialize the control window.
-            </summary>
-            <param name="serialNumber"></param>
-        </member>
-        <member name="P:Rhino.Render.UI.UserInterfaceSection.RenderContent">
-            <summary>
-            The RenderContent object that created this user interface object.
-            </summary>
-        </member>
-        <member name="P:Rhino.Render.UI.UserInterfaceSection.Window">
-            <summary>
-            The user control associated with this user interface object.
-            </summary>
-        </member>
-        <member name="M:Rhino.Render.UI.UserInterfaceSection.FromWindow(System.Object)">
-            <summary>
-            Find the UserInterfaceSection that created the specified instance of a
-            window.
-            </summary>
-            <param name="window">
-            If window is not null then look for the UserInterfaceSection that
-            created the window.
-            </param>
-            <returns>
-            If a UserInterfaceSection object is found containing a reference to
-            the requested window then return the object otherwise return null.
-            </returns>
-        </member>
-        <member name="M:Rhino.Render.UI.UserInterfaceSection.GetContentList">
-            <summary>
-            Returns a list of currently selected content items to be edited.
-            </summary>
-            <returns>Returns a list of currently selected content items to be edited.</returns>
-        </member>
-        <member name="M:Rhino.Render.UI.UserInterfaceSection.Show(System.Boolean)">
-            <summary>
-            Show or hide this content section.
-            </summary>
-            <param name="visible">If true then show the content section otherwise hide it.</param>
-        </member>
-        <member name="M:Rhino.Render.UI.UserInterfaceSection.Expand(System.Boolean)">
-            <summary>
-            Expand or collapse this content section.
-            </summary>
-            <param name="expand">If true then expand the content section otherwise collapse it.</param>
-        </member>
-        <member name="P:Rhino.Render.UI.UserInterfaceSection.Pointer">
-            <summary>
-            Dereference the serial number as a C++ pointer, used for direct access to the C++ object.
-            </summary>
-        </member>
-        <member name="M:Rhino.Render.UI.UserInterfaceSection.GetContentIdList">
-            <summary>
-            Returns a list of currently selected content item Id's to be edited.
-            </summary>
-            <returns>Returns a list of currently selected content item Id's to be edited.</returns>
-        </member>
-        <member name="M:Rhino.Render.UI.UserInterfaceSection.FromSerialNumber(System.Int32)">
-            <summary>
-            Look up a runtime instance of an user interface object by serial number.
-            </summary>
-            <param name="serialNumber"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Rhino.Render.UI.UserInterfaceSection.UiFromSerialNumber(System.Int32,Rhino.Render.UI.UserInterfaceSection@,Rhino.Render.UI.IUserInterfaceSection@)">
-            <summary>
-            Look up a runtime instance of an user interface object by serial number
-            and check the user interface Window object for a IUserInterfaceSection
-            instance.
-            </summary>
-            <param name="serialNumber"></param>
-            <param name="uiSection"></param>
-            <param name="iUiSection"></param>
-            <returns>
-            Returns true if both uiSection and iUiSection are non null otherwise;
-            return false.
-            </returns>
-        </member>
         <member name="F:Rhino.Render.RenderContentStyles.None">
             <summary>
             No defined styles
@@ -60622,11 +59706,6 @@
         <member name="P:Rhino.Render.RenderContent.Tags">
             <summary>
             Tags for this content.
-            </summary>
-        </member>
-        <member name="P:Rhino.Render.RenderContent.Category">
-            <summary>
-            Category for this content.
             </summary>
         </member>
         <member name="P:Rhino.Render.RenderContent.Id">
@@ -64284,11 +63363,6 @@
             Copy PreviewAppearance to MetaData
             </summary>
         </member>
-        <member name="M:Rhino.Render.PreviewAppearance.ToMetaData(Rhino.Render.MetaDataProxy)">
-            <summary>
-            Copy PreviewAppearance to MetaData
-            </summary>
-        </member>
         <member name="M:Rhino.Render.PreviewAppearance.Background">
             <summary>
             Background
@@ -64297,41 +63371,6 @@
         <member name="M:Rhino.Render.PreviewAppearance.Lighting">
             <summary>
             Lighting
-            </summary>
-        </member>
-        <member name="T:Rhino.Render.MetaDataProxy">
-            <summary>
-            ProxyClass for MetaData
-            </summary>
-        </member>
-        <member name="P:Rhino.Render.MetaDataProxy.CppPointer">
-            <summary>
-            MetaDataProxy c++ pointer
-            </summary>
-        </member>
-        <member name="M:Rhino.Render.MetaDataProxy.#ctor">
-            <summary>
-            Constructor for MetaDataProxy
-            </summary>
-        </member>
-        <member name="M:Rhino.Render.MetaDataProxy.Finalize">
-            <summary>
-            Destructor for MetaDataProxy
-            </summary>
-        </member>
-        <member name="M:Rhino.Render.MetaDataProxy.Dispose">
-            <summary>
-            Dispose for MetaDataProxy
-            </summary>
-        </member>
-        <member name="M:Rhino.Render.MetaDataProxy.Dispose(System.Boolean)">
-            <summary>
-            Dispose for MetaDataProxy
-            </summary>
-        </member>
-        <member name="M:Rhino.Render.MetaDataProxy.SetContentInstanceId(System.Guid)">
-            <summary>
-            Set Content instance id for meta data
             </summary>
         </member>
         <member name="T:Rhino.Render.PreviewBackground">
@@ -64791,11 +63830,6 @@
             <summary>
             Override and return true when you don't want your class info
             to cause display attributes to be registered with the system.
-            </summary>
-        </member>
-        <member name="T:Rhino.Render.RealtimeDisplayModePointerWrapper">
-            <summary>
-            Helper class to wrap a C++ RealtimeDisplayMode implementation.
             </summary>
         </member>
         <member name="T:Rhino.Render.RealtimeDisplayMode">
@@ -65859,27 +64893,6 @@
             Required IDisposable method
             </summary>
         </member>
-        <member name="M:Rhino.Render.SafeFrame.#ctor">
-            <summary>
-            Create an utility object not associated with any document
-            </summary>
-        </member>
-        <member name="M:Rhino.Render.SafeFrame.#ctor(Rhino.Render.SafeFrame)">
-            <summary>
-            Create an utility object not associated with any document from another object
-            </summary>
-            <param name="g"></param>
-        </member>
-        <member name="E:Rhino.Render.SafeFrame.Changed">
-            <summary>
-            This event is raised when a SafeFrame property value is changed.
-            </summary>
-        </member>
-        <member name="P:Rhino.Render.SafeFrame.Enabled">
-            <summary>
-            Determines whether the safeframe is enabled.
-            </summary>
-        </member>
         <member name="M:Rhino.Render.RenderTexture.NewBitmapTexture(Rhino.Render.SimulatedTexture)">
             <summary>
             Constructs a new basic texture from a SimulatedTexture.
@@ -66295,6 +65308,278 @@
             </summary>
             <param name="src"></param>
         </member>
+        <member name="T:Rhino.Render.MenuTaskCollection">
+            <summary>
+            A collection of RDK Menu tasks
+            </summary>
+        </member>
+        <member name="M:Rhino.Render.MenuTaskCollection.#ctor">
+            <summary>
+            MenuTaskCollection constructor
+            </summary>
+        </member>
+        <member name="M:Rhino.Render.MenuTaskCollection.Finalize">
+            <summary>
+            MenuTaskCollection destructor
+            </summary>
+        </member>
+        <member name="M:Rhino.Render.MenuTaskCollection.Dispose">
+            <summary>
+            MenuTaskCollection dispose
+            </summary>
+        </member>
+        <member name="M:Rhino.Render.MenuTaskCollection.Dispose(System.Boolean)">
+            <summary>
+            MenuTaskCollection dispose
+            </summary>
+        </member>
+        <member name="M:Rhino.Render.MenuTaskCollection.Task(System.Int32)">
+            <summary>
+            Gets the task at specified index
+            </summary>
+            <param name="index">The index of the desired menutask</param>
+            <returns>Returns the menutask at specified index</returns>
+        </member>
+        <member name="M:Rhino.Render.MenuTaskCollection.Count">
+            <summary>
+            The number of menutasks in collection
+            </summary>
+            <returns>Returns the number of menutasks in collection</returns>
+        </member>
+        <member name="M:Rhino.Render.MenuTaskCollection.Find(System.Guid)">
+            <summary>
+            Find a specific menutask in the collection
+            </summary>
+            <param name="uuid">The task guid to be found</param>
+            <returns>Returns the task with guid uuid</returns>
+        </member>
+        <member name="M:Rhino.Render.MenuTaskCollection.Build(Rhino.Render.MenuTaskOrigin,System.Boolean)">
+            <summary>
+            Constructs the menu task collection. In other words fills the collection with menu task items
+            </summary>
+            <param name="tos">The menutask origin.</param>
+            <param name="bOnItem">true if the UI click event was on the item (click on selected item) or false if no item selected</param>
+            <returns>Return true if menu task collection build was successfull, otherwise false</returns>
+        </member>
+        <member name="T:Rhino.Render.MenuTask">
+            <summary>
+            RDK Menu tasks
+            
+            The Menu task consists of three items:
+              1. Icon
+              2. Menu string
+              3. Function
+            </summary>
+        </member>
+        <member name="M:Rhino.Render.MenuTask.#ctor(System.IntPtr)">
+            <summary>
+            MenuTask constructor
+            </summary>
+        </member>
+        <member name="M:Rhino.Render.MenuTask.Finalize">
+            <summary>
+            MenuTask destructor
+            </summary>
+        </member>
+        <member name="M:Rhino.Render.MenuTask.Dispose">
+            <summary>
+            MenuTask dispose
+            </summary>
+        </member>
+        <member name="M:Rhino.Render.MenuTask.Dispose(System.Boolean)">
+            <summary>
+            MenuTask dispose
+            </summary>
+        </member>
+        <member name="M:Rhino.Render.MenuTask.Id">
+            <summary>
+            Returns the Guid of the menutask
+            </summary>
+            <returns>Returns the Guid of the menutask</returns>
+        </member>
+        <member name="M:Rhino.Render.MenuTask.MenuString(Rhino.Render.MenuTaskOrigin,Rhino.Render.RenderContentKind)">
+            <summary>
+            Returns the title of the menutask
+            </summary>
+            <param name="origin">The menutask origin.</param>
+            <param name="kind">kind as a string. E.g environment, material, texture ...</param>
+            <returns>Returns the menutask title string</returns>
+        </member>
+        <member name="M:Rhino.Render.MenuTask.RenderEngineId">
+            <summary>
+            Returns the render engine Guid of the menutask
+            </summary>
+            <returns>Returns the render engine Guid of the menutask</returns>
+        </member>
+        <member name="M:Rhino.Render.MenuTask.IsEnabled(Rhino.Render.MenuTaskOrigin)">
+            <summary>
+            Returns true if the menutask item is enabled and false if the menutask item is disabled
+            </summary>
+            <param name="origin">The menutask origin.</param>
+            <returns>Returns true if the menutask item is enabled and false if the menutask item is disabled</returns>
+        </member>
+        <member name="M:Rhino.Render.MenuTask.Query(Rhino.Render.MenuTaskOrigin,System.Boolean)">
+            <summary>
+            Query if the task should be displayed to the user in a menu etc.
+            The default implementation returns the result of calling origin.SupportsTask()
+            </summary>
+            <param name="origin">origin represents the UI that the menu was invoked in.</param>
+            <param name="onItem">True if the user right-clicked on one or more items (thumbnail, tree node etc).</param>
+            <returns>\e true if a UI element (e.g., a menu item) should be created for the task, else \e false.</returns>
+        </member>
+        <member name="M:Rhino.Render.MenuTask.MenuOrder(Rhino.Render.MenuTaskOrigin)">
+            <summary>
+            Return the order of the menutask
+            </summary>
+            <param name="origin">The menutask origin.</param>
+            <returns>Return the order of the menutask, 0 = first item, 1 = second item and so on</returns>
+        </member>
+        <member name="M:Rhino.Render.MenuTask.IsForTopLevelContent">
+            <summary>
+            Return true if the menutask is associated with the toplevel content and false if not
+            </summary>
+            <returns>Return true if the menutask is associated with the toplevel content and false if not</returns>
+        </member>
+        <member name="M:Rhino.Render.MenuTask.IconOut(Rhino.Render.RenderContentKind,System.Int32)">
+            <summary>
+            Returns the associated out icon for the menutask item.
+            Out icon is the icon displayed if the menu task is not selected.
+            </summary>
+            <param name="kind">kind as a string. E.g environment, material, texture ...</param>
+            <param name="size">The size of the icon.</param>
+            <returns>Returns a bitmap representing the icon</returns>
+        </member>
+        <member name="M:Rhino.Render.MenuTask.IconIn(Rhino.Render.RenderContentKind,System.Int32)">
+            <summary>
+            Returns the associated in icon for the menutask item.
+            Out icon is the icon displayed if the menu task is not selected and the in icon is
+            represents that the menutask is selected. If the menutask does not contain two states
+            then the IconIn will return the same icon as IconOut
+            </summary>
+            <param name="kind">kind as a string. E.g environment, material, texture ...</param>
+            <param name="size">The size of the icon.</param>
+            <returns>Returns a bitmap representing the icon</returns>
+        </member>
+        <member name="M:Rhino.Render.MenuTask.UserExecute(Rhino.Render.MenuTaskOrigin)">
+            <summary>
+            Called to execute the function associated with the menutask
+            </summary>
+            <param name="origin">The menutask origin.</param>
+            <returns> Returns UserExecuteResult values { kSuccess, kFailure, kCancel };</returns>
+        </member>
+        <member name="M:Rhino.Render.MenuTask.MenuSeparators">
+            <summary>
+            Returns a value indicating if the menutask has menuseparators before, after or none
+            </summary>
+            <returns> Returns Separator value
+              kNone = No separators will surround this task on the menu.
+              kBefore = A separator will appear before this task on the menu.
+              kAfter = A separator will appear after this task on the menu.
+              kBoth,</returns>
+        </member>
+        <member name="M:Rhino.Render.MenuTask.SubMenu">
+            <summary>
+            Returns the SubMenu value of the task
+            </summary>
+            <returns> Returns SubMenu value</returns>
+        </member>
+        <member name="T:Rhino.Render.MenuTaskOriginFactory">
+            <summary>
+            Rdk MenuTaskOriginFactory creates the menu task origin for the UI.
+            The MenuTaskOriginFactory needs information like Controller, UserControl, ContextEditingContext
+            in order to create the correct origin.
+            </summary>
+        </member>
+        <member name="M:Rhino.Render.MenuTaskOriginFactory.#ctor">
+            <summary>
+            MenuTaskOriginFactory constructor
+            </summary>
+        </member>
+        <member name="M:Rhino.Render.MenuTaskOriginFactory.Finalize">
+            <summary>
+            MenuTaskOriginFactory destructor
+            </summary>
+        </member>
+        <member name="M:Rhino.Render.MenuTaskOriginFactory.Dispose">
+            <summary>
+            MenuTaskOriginFactory dispose
+            </summary>
+        </member>
+        <member name="M:Rhino.Render.MenuTaskOriginFactory.Dispose(System.Boolean)">
+            <summary>
+            MenuTaskOriginFactory dispose
+            </summary>
+        </member>
+        <member name="M:Rhino.Render.MenuTaskOriginFactory.Origin">
+            <summary>
+            Returns the menu task origin
+            </summary>
+        </member>
+        <member name="M:Rhino.Render.MenuTaskOriginFactory.NewButtonTaskOrigin(Rhino.Render.RenderContentKind)">
+            <summary>
+            Returns the menu task origin for new button
+            </summary>
+        </member>
+        <member name="P:Rhino.Render.MenuTaskOriginFactory.UserControl">
+            <summary>
+            Set the RhRdkUserControl
+            </summary>
+        </member>
+        <member name="P:Rhino.Render.MenuTaskOriginFactory.ChildSlotName">
+            <summary>
+            Set the ChildSlotName
+            </summary>
+        </member>
+        <member name="P:Rhino.Render.MenuTaskOriginFactory.PreviewAppearance">
+            <summary>
+            Set the PreviewAppearance if the usercontrol has one
+            </summary>
+        </member>
+        <member name="P:Rhino.Render.MenuTaskOriginFactory.OnItem">
+            <summary>
+            Set OnItem to true to get menutaskorigin for on item clicked and set to false to get menutaskorigin for 
+            none selected item
+            </summary>
+        </member>
+        <member name="P:Rhino.Render.MenuTaskOriginFactory.AllowedKinds">
+            <summary>
+            Semicolon delimited string with allowed content kind for menutasks
+            </summary>
+        </member>
+        <member name="P:Rhino.Render.MenuTaskOriginFactory.UuidOrigin">
+            <summary>
+            Returns the Guid of the menutask origin
+            </summary>
+            <returns> Returns the Guid of the menutask origin</returns>
+        </member>
+        <member name="M:Rhino.Render.MenuTaskOriginFactory.SetController(System.IntPtr)">
+            <summary>
+            Set the Controller
+            </summary>
+            <param name="pController">The control</param>
+        </member>
+        <member name="M:Rhino.Render.MenuTaskOriginFactory.SetControlController(System.IntPtr)">
+            <summary>
+            Set the control of controller
+            </summary>
+            <param name="pControl">The control</param>
+        </member>
+        <member name="M:Rhino.Render.MenuTaskOriginFactory.SetInstanceIdArray(System.IntPtr)">
+            <summary>
+            Set the InstanceIdArray: Array of selected items Guids
+            </summary>
+            <param name="pInstanceArray">The InstanceIdArray</param>
+        </member>
+        <member name="T:Rhino.Render.MenuTaskOrigin">
+            <summary>
+            MenuTaskOrigin class that wraps the IRhRdkTaskOrigin interface
+            </summary>
+        </member>
+        <member name="M:Rhino.Render.MenuTaskOrigin.#ctor(System.IntPtr)">
+            <summary>
+            MenuTaskOrigin constructor
+            </summary>
+        </member>
         <member name="F:Rhino.Render.ImageFileEvent.Saved">
             <summary>
             Render image file has been successfully written
@@ -66428,28 +65713,28 @@
         </member>
         <member name="P:Rhino.NodeInCode.ComponentFunctionInfo.OutputNames">
             <summary>
-            Grasshopper returns several items in general. This property returns the output names.
+            Grasshopper returns several items in general. This property retuns the output names.
             </summary>
         </member>
         <member name="P:Rhino.NodeInCode.ComponentFunctionInfo.OutputDescriptions">
             <summary>
-            Grasshopper returns several items in general. This property returns the output descriptions.
+            Grasshopper returns several items in general. This property retuns the output descriptions.
             </summary>
         </member>
         <member name="P:Rhino.NodeInCode.ComponentFunctionInfo.OutputTypeNames">
             <summary>
-            Grasshopper returns several items in general. This property returns the output type names.
+            Grasshopper returns several items in general. This property retuns the output type names.
             </summary>
         </member>
         <member name="P:Rhino.NodeInCode.ComponentFunctionInfo.ComponentGuid">
             <summary>
             The unique identifier of the Grasshopper component.
-            It is the original developer's responsibility to ensure that this ID is unique.
+            It is the original developer's responsability to ensure that this ID is unique.
             </summary>
         </member>
         <member name="M:Rhino.NodeInCode.ComponentFunctionInfo.ToString">
             <summary>
-            Returns a string representing this function.
+            Returns a string represetning this function.
             </summary>
             <returns>The namespace and the name.</returns>
         </member>
@@ -71992,6 +71277,31 @@
             It might be useful to note that the intersection of sets (subface U face) => subface
             </summary>
         </member>
+        <member name="T:Rhino.PrivateMeshCommands.MeshTypes.CreaseEdges">
+            <summary>
+            Defines the way naked edges are handled.
+            </summary>
+        </member>
+        <member name="F:Rhino.PrivateMeshCommands.MeshTypes.CreaseEdges.NakedFixed">
+            <summary>
+            Naked edges will not move or be modified.
+            </summary>
+        </member>
+        <member name="F:Rhino.PrivateMeshCommands.MeshTypes.CreaseEdges.NakedSmooth">
+            <summary>
+            The naked edge will tend toward a spline.
+            </summary>
+        </member>
+        <member name="F:Rhino.PrivateMeshCommands.MeshTypes.CreaseEdges.CornerFixedOtherCreased">
+            <summary>
+            Corners (2-sided vertices) will be fixed, while other naked vertices will tend toward a spline.
+            </summary>
+        </member>
+        <member name="F:Rhino.PrivateMeshCommands.MeshTypes.CreaseEdges.Auto">
+            <summary>
+            Unwelded vertices become creases, and welded are smooth.
+            </summary>
+        </member>
         <member name="T:Rhino.PrivateMeshCommands.MeshTypes.GeometryProcessingException">
             <summary>
             This exception is thrown when an expected mesh operation fails.
@@ -75438,11 +74748,6 @@
             is true then this directory will get created and writable.
             </param>
         </member>
-        <member name="M:Rhino.RhinoApp.GetExecutableDirectory">
-            <summary>
-            directory
-            </summary>
-        </member>
         <member name="P:Rhino.RhinoApp.Rhino2Id">
             <summary>Gets the ID of Rhino 2.</summary>
         </member>
@@ -76358,10 +75663,9 @@
             <param name="info">Serialization data.</param>
             <param name="context">Serialization stream.</param>
         </member>
-        <member name="M:Rhino.SettingValue.#ctor(Rhino.PersistentSettings,System.String,System.String,System.String)">
+        <member name="M:Rhino.SettingValue.#ctor(Rhino.PersistentSettings,System.String,System.String)">
             <summary> Constructor. </summary>
             <param name="parent">PersistentSettings collection this is being added to.</param>
-            <param name="name">Current value name.</param>
             <param name="value">Current value string.</param>
             <param name="defaultValue">Default value string.</param>
         </member>
@@ -77053,6 +76357,86 @@
             <returns>returns the number of instances</returns>
         </member>
         <member name="M:SnapShotsClientDataArray.At(System.Int32)">
+            <summary>
+            Get the instance at index
+            </summary>
+            <param name="index">The index of the instance</param>
+            <returns>returns the instance at index</returns>
+        </member>
+        <member name="T:TaskTypeListBuilder">
+            <summary>
+            TaskTypeListBuilder class that wraps the CRhRdkTaskTypeListBuilder class
+            </summary>
+        </member>
+        <member name="M:TaskTypeListBuilder.#ctor(InstanceIdArray,Rhino.Render.RenderContentKind)">
+            <summary>
+            TaskTypeListBuilder constructor
+            </summary>
+        </member>
+        <member name="M:TaskTypeListBuilder.Finalize">
+            <summary>
+            TaskTypeListBuilder destructor
+            </summary>
+        </member>
+        <member name="M:TaskTypeListBuilder.Dispose">
+            <summary>
+            TaskTypeListBuilder dispose
+            </summary>
+        </member>
+        <member name="M:TaskTypeListBuilder.Dispose(System.Boolean)">
+            <summary>
+            TaskTypeListBuilder dispose
+            </summary>
+        </member>
+        <member name="M:TaskTypeListBuilder.Build(Rhino.Render.RenderContentCollection)">
+            <summary>
+            Builds the list in the target 
+            </summary>
+            <returns>returns the required text width.</returns>
+        </member>
+        <member name="T:InstanceIdArray">
+            <summary>
+            InstanceIdArray class that wraps the CRhRdkInstanceIdArray interface
+            </summary>
+        </member>
+        <member name="M:InstanceIdArray.#ctor">
+            <summary>
+            InstanceIdArray constructor
+            </summary>
+        </member>
+        <member name="M:InstanceIdArray.#ctor(System.IntPtr)">
+            <summary>
+            InstanceIdArray constructor
+            </summary>
+        </member>
+        <member name="M:InstanceIdArray.Finalize">
+            <summary>
+            InstanceIdArray destructor
+            </summary>
+        </member>
+        <member name="M:InstanceIdArray.Dispose">
+            <summary>
+            InstanceIdArray dispose
+            </summary>
+        </member>
+        <member name="M:InstanceIdArray.Dispose(System.Boolean)">
+            <summary>
+            InstanceIdArray dispose
+            </summary>
+        </member>
+        <member name="M:InstanceIdArray.Append(System.Guid)">
+            <summary>
+            Append item to the list
+            </summary>
+            <param name="uuid">The Guid of the item to append to the list</param>
+        </member>
+        <member name="M:InstanceIdArray.Count">
+            <summary>
+            Get the number of instances
+            </summary>
+            <returns>returns the number of instances</returns>
+        </member>
+        <member name="M:InstanceIdArray.At(System.Int32)">
             <summary>
             Get the instance at index
             </summary>

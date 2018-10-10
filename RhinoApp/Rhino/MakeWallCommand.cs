@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Windows.Forms;
-using System.Collections.Generic;
-using System.IO;
+using CrossPlatform.Interop;
 using Rhino;
 using Rhino.Commands;
 using Rhino.Geometry;
-using Rhino.Input;
-using Rhino.Input.Custom;
 
 namespace CrossPlatform.Rhino
 {
@@ -47,10 +44,15 @@ namespace CrossPlatform.Rhino
                     return Result.Cancel;
                 }
 
-                RhinoApp.WriteLine(theDialog.FileName);
+                // import the CrossPlatform Wall
+                RhinoApp.WriteLine("Importing wall from file : " + theDialog.FileName);
                 var wall = CrossPlatform.Library.IO.Json.FromJsonFile<CrossPlatform.BIM.Wall>(theDialog.FileName);
+
+                // make a new Rhino box from wall dimensions
+                var brep = WallInterop.ToRhino(wall);
+
                 RhinoApp.WriteLine(CrossPlatform.Library.IO.Json.ToJson(wall));
-                doc.Views.Redraw();
+                if (doc.Objects.AddBrep(brep) == System.Guid.Empty) throw new Exception("Could not add box to document");
                 RhinoApp.WriteLine("The {0} command added one wall to the document.");
             }
             catch (Exception e)
@@ -59,6 +61,7 @@ namespace CrossPlatform.Rhino
                 throw;
             }
 
+            doc.Views.Redraw();
             return Result.Success;
         }
     }

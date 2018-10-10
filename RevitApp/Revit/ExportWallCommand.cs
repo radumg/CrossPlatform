@@ -8,6 +8,7 @@ using Autodesk.Revit.Attributes;
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
 using Autodesk.Revit.UI.Selection;
+using CrossPlatform.Interop;
 #endregion
 
 namespace CrossPlatform.Revit
@@ -30,12 +31,12 @@ namespace CrossPlatform.Revit
             var element = doc.GetElement(elementRef.ElementId);
 
             // convert element to CrossPlatform one
-            var cxWall = new CrossPlatform.BIM.Wall();
-            var wall = cxWall.FromRevit(element as Wall);
+            var wall = new CrossPlatform.BIM.Wall();
+            wall = WallInterop.FromRevit(element as Wall);
 
             // write to json on desktop
             var filepath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "exportedWall.json");
-            var exported = Library.IO.Json.ToJsonFile(cxWall, filepath);
+            var exported = Library.IO.Json.ToJsonFile(wall, filepath);
 
             // inform user
             if(exported) TaskDialog.Show("Success", "Saved the JSON file here :" + Environment.NewLine + filepath);

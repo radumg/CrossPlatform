@@ -224,15 +224,6 @@
             </remarks>
             <param name="items">List of items to remove</param>
         </member>
-        <member name="M:Eto.CollectionChangedHandler`2.Reset">
-            <summary>
-            Resets the collection when it is dramatically changed
-            </summary>
-            <remarks>
-            By default this removes all items and adds all items back (if Collection is an IEnumerable{T})
-            Platform implementations can override this to do something more efficient if needed.
-            </remarks>
-        </member>
         <member name="T:Eto.EnumerableChangedHandler`1">
             <summary>
             Helper class to handle collection change events of an <see cref="T:System.Collections.IEnumerable"/>
@@ -1504,26 +1495,13 @@
         </member>
         <member name="M:Eto.Drawing.Color.Blend(Eto.Drawing.Color,Eto.Drawing.Color)">
             <summary>
-            Blends the <paramref name="blendColor"/> onto the specified <paramref name="baseColor"/>. Uses alpha component of <paramref name="blendColor"/>
-            to detemine the blending factor.
+            Blends the <paramref name="blendColor"/> onto the specified <paramref name="baseColor"/>
             </summary>
             <remarks>
             This computes the blended value of two colors.
             </remarks>
             <param name="baseColor">Base color</param>
             <param name="blendColor">Color to blend onto the base color</param>
-        </member>
-        <member name="M:Eto.Drawing.Color.Blend(Eto.Drawing.Color,Eto.Drawing.Color,System.Single)">
-            <summary>
-            Blends the <paramref name="blendColor"/> onto the specified <paramref name="baseColor"/>. Ignores the alpha component and uses
-            the provided blend factor.
-            </summary>
-            <remarks>
-            This computes the blended value of two colors.
-            </remarks>
-            <param name="baseColor">Base color</param>
-            <param name="blendColor">Color to blend onto the base color</param>
-            <param name="blendFactor">Blend amount from 0 (<paramref name="baseColor"/>) to 1 (<paramref name="blendColor"/>).</param>
         </member>
         <member name="M:Eto.Drawing.Color.#ctor(System.Single,System.Single,System.Single,System.Single)">
             <summary>
@@ -9876,16 +9854,6 @@
         <member name="F:Eto.Drawing.SizeF.MinValue">
             <summary>
             SizeF with width and height with a minimum float value
-            </summary>
-        </member>
-        <member name="F:Eto.Drawing.SizeF.PositiveInfinity">
-            <summary>
-            A SizeF with the width and height set to float.PositiveInfinity
-            </summary>
-        </member>
-        <member name="F:Eto.Drawing.SizeF.NegativeInfinity">
-            <summary>
-            A SizeF with the width and height set to float.NegativeInfinity
             </summary>
         </member>
         <member name="M:Eto.Drawing.SizeF.#ctor(System.Single,System.Single)">
@@ -29100,12 +29068,6 @@
             Initializes a new instance of the <see cref="T:Eto.Forms.StackLayout"/> class.
             </summary>
         </member>
-        <member name="M:Eto.Forms.StackLayout.#ctor(Eto.Forms.StackLayoutItem[])">
-            <summary>
-            Initializes a new instance of the <see cref="T:Eto.Forms.StackLayout"/> class with the specified items.
-            </summary>
-            <param name="items">Initial items to add to the StackLayout.</param>
-        </member>
         <member name="M:Eto.Forms.StackLayout.OnPreLoad(System.EventArgs)">
             <summary>
             Raises the <see cref="E:Eto.Forms.Control.PreLoad"/> event, and recurses to this container's children
@@ -30494,35 +30456,11 @@
             </summary>
             <param name="items">Items to populate the menu</param>
         </member>
-        <member name="M:Eto.Forms.ContextMenu.Show">
-            <summary>
-            Show the context menu at the current mouse position.
-            </summary>
-        </member>
         <member name="M:Eto.Forms.ContextMenu.Show(Eto.Forms.Control)">
             <summary>
-            Show the context menu for the specified control, usually at the current mouse position.
+            Show the context menu relative to the specified control
             </summary>
             <param name="relativeTo">Control to show the menu relative to</param>
-        </member>
-        <member name="M:Eto.Forms.ContextMenu.Show(Eto.Drawing.PointF)">
-            <summary>
-            Shows the context menu at the specified screen co-ordinates
-            </summary>
-            <remarks>
-            Note that the operating system may move the location of the menu to make it fully visible.
-            </remarks>
-            <param name="location">Location in screen co-ordinates to place the context menu</param>
-        </member>
-        <member name="M:Eto.Forms.ContextMenu.Show(Eto.Forms.Control,System.Nullable{Eto.Drawing.PointF})">
-            <summary>
-            Shows the context menu at the specified location relative to a control.
-            </summary>
-            <remarks>
-            Note that the operating system may move the context menu to make it fully visible.
-            </remarks>
-            <param name="relativeTo">Control to show the menu relative to, or null to use screen co-ordinates for <paramref name="location"/></param>
-            <param name="location">Location to place the upper left of the context menu, or null to use the mouse position</param>
         </member>
         <member name="M:Eto.Forms.ContextMenu.OnLoad(System.EventArgs)">
             <summary>
@@ -30559,30 +30497,12 @@
         </member>
         <member name="E:Eto.Forms.ContextMenu.Closed">
             <summary>
-            Occurs when the context menu is closed/dismissed, after the menu item has been selected and its click 
-            event is triggered.
+            Occurs when the context menu is closed/dismissed.
             </summary>
         </member>
         <member name="M:Eto.Forms.ContextMenu.OnClosed(System.EventArgs)">
             <summary>
             Raises the <see cref="E:Eto.Forms.ContextMenu.Closed"/> event.
-            </summary>
-            <param name="e">Event arguments</param>
-        </member>
-        <member name="F:Eto.Forms.ContextMenu.ClosingEvent">
-            <summary>
-            Event identifier for handlers when attaching the <see cref="E:Eto.Forms.ContextMenu.Closing"/> event.
-            </summary>
-        </member>
-        <member name="E:Eto.Forms.ContextMenu.Closing">
-            <summary>
-            Occurs before the context menu is closed/dismissed when the user clicks an item, but before the menu item's
-            click event is triggered.
-            </summary>
-        </member>
-        <member name="M:Eto.Forms.ContextMenu.OnClosing(System.EventArgs)">
-            <summary>
-            Raises the <see cref="E:Eto.Forms.ContextMenu.Closing"/> event.
             </summary>
             <param name="e">Event arguments</param>
         </member>
@@ -30607,11 +30527,6 @@
             Raises the <see cref="E:Eto.Forms.ContextMenu.Closed"/> event.
             </summary>
         </member>
-        <member name="M:Eto.Forms.ContextMenu.ICallback.OnClosing(Eto.Forms.ContextMenu,System.EventArgs)">
-            <summary>
-            Raises the <see cref="E:Eto.Forms.ContextMenu.Closing"/> event.
-            </summary>
-        </member>
         <member name="T:Eto.Forms.ContextMenu.Callback">
             <summary>
             Callback implementation for handlers of the <see cref="T:Eto.Forms.ContextMenu"/>
@@ -30627,22 +30542,16 @@
             Raises the <see cref="E:Eto.Forms.ContextMenu.Closed"/> event.
             </summary>
         </member>
-        <member name="M:Eto.Forms.ContextMenu.Callback.OnClosing(Eto.Forms.ContextMenu,System.EventArgs)">
-            <summary>
-            Raises the <see cref="E:Eto.Forms.ContextMenu.Closing"/> event.
-            </summary>
-        </member>
         <member name="T:Eto.Forms.ContextMenu.IHandler">
             <summary>
             Handler interface for the <see cref="T:Eto.Forms.ContextMenu"/>
             </summary>
         </member>
-        <member name="M:Eto.Forms.ContextMenu.IHandler.Show(Eto.Forms.Control,System.Nullable{Eto.Drawing.PointF})">
+        <member name="M:Eto.Forms.ContextMenu.IHandler.Show(Eto.Forms.Control)">
             <summary>
             Show the context menu relative to the specified control
             </summary>
-            <param name="relativeTo">Control to show the menu relative to, or null to use screen co-ordinates for <paramref name="location"/></param>
-            <param name="location">Location to place the upper left of the context menu, or null to use the mouse position</param>
+            <param name="relativeTo">Control to show the menu relative to</param>
         </member>
         <member name="T:Eto.Forms.Menu">
             <summary>
@@ -34412,17 +34321,6 @@
             This typically executes the code on the UI main loop, thus the accuracy of the timer is dependent on
             the other UI code executing.
             </remarks>
-        </member>
-        <member name="M:Eto.Forms.UITimer.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:Eto.Forms.UITimer"/> class.
-            </summary>
-        </member>
-        <member name="M:Eto.Forms.UITimer.#ctor(System.EventHandler{System.EventArgs})">
-            <summary>
-            Initializes a new instance of the <see cref="T:Eto.Forms.UITimer"/> class with the specified <paramref name="elapsedHandler"/>.
-            </summary>
-            <param name="elapsedHandler">Delegate for handling the <see cref="E:Eto.Forms.UITimer.Elapsed"/> event.</param>
         </member>
         <member name="E:Eto.Forms.UITimer.Elapsed">
             <summary>

@@ -1,15 +1,10 @@
 ﻿using System;
-using Autodesk.Revit.DB;
 using CrossPlatform.Interfaces;
 using CrossPlatform.Library;
-using Rhino.Geometry;
 
 namespace CrossPlatform.Geometry
 {
-    public class Line :
-        BaseElement,
-        IRevitInterop<Line, Autodesk.Revit.DB.Line>,
-        IRhinoInterop<Line, Rhino.Geometry.LineCurve>
+    public class Line : BaseElement
     {
         public Point StartPoint { get; set; }
         public Point EndPoint { get; set; }
@@ -29,8 +24,8 @@ namespace CrossPlatform.Geometry
         {
             if (startPoint == null || endPoint == null) throw new ArgumentNullException();
 
-            this.StartPoint = startPoint;
-            this.EndPoint = endPoint;
+            StartPoint = startPoint;
+            EndPoint = endPoint;
         }
         #endregion
 
@@ -38,9 +33,9 @@ namespace CrossPlatform.Geometry
         private double ComputeLength()
         {
             return Math.Sqrt(
-                Math.Pow(this.EndPoint.X - this.StartPoint.X, 2) + 
-                Math.Pow(this.EndPoint.Y - this.StartPoint.Y, 2) + 
-                Math.Pow(this.EndPoint.Z - this.StartPoint.Z, 2)
+                Math.Pow(EndPoint.X - StartPoint.X, 2) +
+                Math.Pow(EndPoint.Y - StartPoint.Y, 2) +
+                Math.Pow(EndPoint.Z - StartPoint.Z, 2)
                 );
         }
 
@@ -51,46 +46,6 @@ namespace CrossPlatform.Geometry
             EndPoint = temp;
 
             return this;
-        }
-        #endregion
-
-        #region interop
-        public Line FromRevit(Autodesk.Revit.DB.Line revitLine)
-        {
-            if (revitLine == null) throw new ArgumentNullException();
-
-            this.StartPoint = new Point().FromRevit(revitLine.GetEndPoint(0));
-            this.EndPoint = new Point().FromRevit(revitLine.GetEndPoint(1));
-
-            return this;
-        }
-
-        public Autodesk.Revit.DB.Line ToRevit()
-        {
-            var start = this.StartPoint.ToRevit();
-            var end = this.EndPoint.ToRevit();
-
-            return Autodesk.Revit.DB.Line.CreateBound(start, end);
-        }
-
-        public Autodesk.Revit.DB.Line ToRevit(Document doc = null, ElementId hostId = null)
-        {
-            return ToRevit();
-        }
-
-        public Line FromRhino(Rhino.Geometry.LineCurve rhinoLine)
-        {
-            if (rhinoLine == null) throw new ArgumentNullException();
-
-            this.StartPoint = new Point().FromRhino(rhinoLine.PointAtStart);
-            this.EndPoint = new Point().FromRhino(rhinoLine.PointAtEnd);
-
-            return this;
-        }
-
-        public Rhino.Geometry.LineCurve ToRhino()
-        {
-            return new Rhino.Geometry.LineCurve(StartPoint.ToRhino(), EndPoint.ToRhino());
         }
 
         #endregion
