@@ -10,9 +10,9 @@ namespace CrossPlatform.Geometry
         IRevitInterop<Point, Autodesk.Revit.DB.XYZ>,
         IRhinoInterop<Point, Rhino.Geometry.Point3d>
     {
-        public double X { get; internal set; }
-        public double Y { get; internal set; }
-        public double Z { get; internal set; }
+        public double X { get; set; }
+        public double Y { get; set; }
+        public double Z { get; set; }
 
         #region constructors
         public Point() : base()

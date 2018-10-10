@@ -11,8 +11,8 @@ namespace CrossPlatform.Geometry
         IRevitInterop<Line, Autodesk.Revit.DB.Line>,
         IRhinoInterop<Line, Rhino.Geometry.LineCurve>
     {
-        public Point StartPoint { get; internal set; }
-        public Point EndPoint { get; internal set; }
+        public Point StartPoint { get; set; }
+        public Point EndPoint { get; set; }
 
         // computed
         public double Length => ComputeLength();

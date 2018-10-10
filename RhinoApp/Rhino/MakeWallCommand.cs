@@ -34,23 +34,30 @@ namespace CrossPlatform.Rhino
         protected override Result RunCommand(RhinoDoc doc, RunMode mode)
         {
             // TODO: start here modifying the behaviour of your command.
-            RhinoApp.WriteLine("The {0} command will make a wall from a CrossPlatform.BIM.Wall object.", EnglishName);
-
-            // load the json file from disk
-            OpenFileDialog theDialog = new OpenFileDialog();
-            theDialog.Title = "Please select the CrossPlatform.BIM.Wall json file.";
-            DialogResult result = theDialog.ShowDialog();
-            if (result != DialogResult.OK) // Test result.
+            RhinoApp.WriteLine("The {0} command will make a wall from a CrossPlatform.BIM.Wall object.");
+            try
             {
-                RhinoApp.WriteLine("Could not load file.");
-                return Result.Cancel;
+                // load the json file from disk
+                OpenFileDialog theDialog = new OpenFileDialog();
+                theDialog.Title = "Please select the CrossPlatform.BIM.Wall json file.";
+                DialogResult result = theDialog.ShowDialog();
+                if (result != DialogResult.OK) // Test result.
+                {
+                    RhinoApp.WriteLine("Could not load file.");
+                    return Result.Cancel;
+                }
+
+                RhinoApp.WriteLine(theDialog.FileName);
+                var wall = CrossPlatform.Library.IO.Json.FromJsonFile<CrossPlatform.BIM.Wall>(theDialog.FileName);
+                RhinoApp.WriteLine(CrossPlatform.Library.IO.Json.ToJson(wall));
+                doc.Views.Redraw();
+                RhinoApp.WriteLine("The {0} command added one wall to the document.");
             }
-
-            MessageBox.Show(theDialog.FileName);
-            //var wall = CrossPlatform.Library.IO.Json.FromJsonFile<CrossPlatform.BIM.Wall>(theDialog.FileName);
-
-            doc.Views.Redraw();
-            RhinoApp.WriteLine("The {0} command added one wall to the document.", EnglishName);
+            catch (Exception e)
+            {
+                RhinoApp.WriteLine("Something failed miserably : " + e.Message);
+                throw;
+            }
 
             return Result.Success;
         }
