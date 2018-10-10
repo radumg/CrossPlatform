@@ -1,13 +1,10 @@
-#region Namespaces
 using System;
 using System.Reflection;
 using Autodesk.Revit.UI;
-using CrossPlatform.Revit;
-#endregion
 
 namespace CrossPlatform
 {
-    class RevitApp : IExternalApplication
+    public class RevitApp : IExternalApplication
     {
         private const string tabName = "CrossPlatform";
 

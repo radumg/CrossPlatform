@@ -37,7 +37,11 @@ namespace CrossPlatform.Geometry
         #region methods
         private double ComputeLength()
         {
-            return Math.Sqrt(Math.Pow(this.StartPoint.X - this.EndPoint.X, 2) + Math.Pow(this.StartPoint.Y - this.EndPoint.Y, 2) + Math.Pow(this.StartPoint.Z - this.EndPoint.Z, 2));
+            return Math.Sqrt(
+                Math.Pow(this.EndPoint.X - this.StartPoint.X, 2) + 
+                Math.Pow(this.EndPoint.Y - this.StartPoint.Y, 2) + 
+                Math.Pow(this.EndPoint.Z - this.StartPoint.Z, 2)
+                );
         }
 
         public Line Reverse()

@@ -11,7 +11,6 @@ namespace CrossPlatform.Rhino
     /// "Show All Files" to see it in the "Solution Explorer" window).</para>
     ///</summary>
     public class RhinoAppPlugIn : PlugIn
-
     {
         public RhinoAppPlugIn()
         {
