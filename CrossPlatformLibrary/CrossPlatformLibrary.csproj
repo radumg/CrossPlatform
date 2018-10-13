@@ -63,8 +63,9 @@
     <Compile Include="Geometry\Point.cs" />
     <Compile Include="Interfaces\IRhinoInterop.cs" />
     <Compile Include="Interfaces\IRevitInterop.cs" />
-    <Compile Include="Interop\Revit.cs" />
-    <Compile Include="Interop\Rhino.cs" />
+    <Compile Include="Interop\LineInterop.cs" />
+    <Compile Include="Interop\PointInterop.cs" />
+    <Compile Include="Interop\WallInterop.cs" />
     <Compile Include="Library\Element.cs" />
     <Compile Include="Library\IO\Json.cs" />
     <Compile Include="Library\Utils\WhoAmI.cs" />

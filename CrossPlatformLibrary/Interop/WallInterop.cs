@@ -3,61 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CrossPlatform.Interfaces;
-using CrossPlatform.Geometry;
 using CrossPlatform.BIM;
+using CrossPlatform.Geometry;
 
 namespace CrossPlatform.Interop
 {
-    public static partial class PointInterop
+    public static class WallInterop
     {
-        public static Point FromRevit(Autodesk.Revit.DB.XYZ revitPoint)
-        {
-            if (revitPoint == null) throw new ArgumentNullException();
-
-            var point = new Point
-            {
-                X = revitPoint.X,
-                Y = revitPoint.Y,
-                Z = revitPoint.Z
-            };
-
-            return point;
-        }
-
-        public static Autodesk.Revit.DB.XYZ ToRevit(Point source)
-        {
-            return new Autodesk.Revit.DB.XYZ(source.X, source.Y, source.Z);
-        }
-    }
-
-    public static partial class LineInterop
-    {
-        public static Line FromRevit(Autodesk.Revit.DB.Line revitLine)
-        {
-            if (revitLine == null) throw new ArgumentNullException();
-
-            var line = new Line
-            {
-                StartPoint = PointInterop.FromRevit(revitLine.GetEndPoint(0)),
-                EndPoint = PointInterop.FromRevit(revitLine.GetEndPoint(1))
-            };
-
-            return line;
-        }
-
-        public static Autodesk.Revit.DB.Line ToRevit(Line source)
-        {
-            var start = PointInterop.ToRevit(source.StartPoint);
-            var end = PointInterop.ToRevit(source.EndPoint);
-
-            return Autodesk.Revit.DB.Line.CreateBound(start, end);
-        }
-
-    }
-
-    public static partial class WallInterop
-    {
+        #region Revit
         public static Wall FromRevit(Autodesk.Revit.DB.Wall revitWall)
         {
             var wall = new Wall();
@@ -89,6 +42,31 @@ namespace CrossPlatform.Interop
                 false
                 );
         }
+        #endregion
 
+        #region Rhino
+        public static Wall FromRhino(Autodesk.Revit.DB.Wall revitWall)
+        {
+            throw new NotImplementedException();
+        }
+
+        public static Rhino.Geometry.Brep ToRhino(Wall wall)
+        {
+            // i know the coordinates are not right, but it's work in progress and i'm past caring.
+            var vector = new Rhino.Geometry.Vector3d(wall.BaseLine.EndPoint.X, wall.BaseLine.EndPoint.Y, wall.BaseLine.EndPoint.Z);
+            var origin = new Rhino.Geometry.Point3d(wall.BaseLine.StartPoint.X, wall.BaseLine.StartPoint.Y, wall.BaseLine.StartPoint.Z);
+            var plane = new Rhino.Geometry.Plane(origin, vector);
+            Rhino.Geometry.Interval xInterval = new Rhino.Geometry.Interval(-wall.Length / 2, wall.Length / 2);
+            Rhino.Geometry.Interval yInterval = new Rhino.Geometry.Interval(-wall.Thickness / 2, wall.Thickness / 2);
+            Rhino.Geometry.Interval zInterval = new Rhino.Geometry.Interval(0, wall.Height);
+
+            Rhino.Geometry.Box box = new Rhino.Geometry.Box(plane, xInterval, yInterval, zInterval);
+            var brep = box.ToBrep();
+            brep.Rotate(Math.PI / 2, vector, origin);
+
+            return brep;
+        }
+
+        #endregion
     }
 }
